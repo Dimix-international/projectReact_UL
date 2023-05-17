@@ -1,0 +1,12 @@
+@import "src/app/styles/reset";
+@import "src/app/styles/variables/global";
+@import "src/app/styles/themes/normal";
+@import "src/app/styles/themes/dark";
+
+.app {
+  font: var(--font-m); //шрифт по умолч
+  color: var(--primary-color);
+  background: var(--bg-color);
+
+  height: 100vh;
+}

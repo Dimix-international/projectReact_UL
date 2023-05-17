@@ -13,7 +13,7 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
         mode,
         /*  entry: {
             //много entry (файлов)
-            RANDOM: path.resolve(__dirname, 'src', 'index.ts'), // RANDOM - название файла
+            RANDOM: path.resolve(__dirname, 'src', 'index.ts.ts'), // RANDOM - название файла
           }, //__dirname - папка в которой в данные момент находимся, далее участки пути*/
         entry: paths.entry,
         output: {
@@ -25,7 +25,7 @@ export function buildWebpackConfig (options: BuildOptions): webpack.Configuratio
         module: {
             rules: buildLoaders(options),
         },
-        resolve: buildResolvers(),
+        resolve: buildResolvers(options),
         devtool: isDev ? 'inline-source-map' : undefined, //помогает например с поиском ошибки в коде
         devServer: isDev ? buildDevServer(options) : undefined
     }

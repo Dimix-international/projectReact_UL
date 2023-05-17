@@ -6,9 +6,10 @@ import path from "path";
 export default (env: BuildEnv) => {
 
   const paths: BuildPaths = {
-    entry: path.resolve(__dirname, 'src', 'index.tsx'),
+    entry: path.resolve(__dirname, 'src', 'index.ts.tsx'),
     build: path.resolve(__dirname, 'build'),
-    html: path.resolve(__dirname, 'public', 'index.html'),
+    html: path.resolve(__dirname, 'public', 'index.ts.html'),
+    src: path.resolve(__dirname, 'src'), //путь до папка с исходным кодом
   }
 
   const mode = env.mode || 'development';
