@@ -4,7 +4,8 @@ import {routeConfig} from "shared/config/routeConfig/routeConfig";
 
 export const AppRouter = () => {
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <div className={'page-wrapper'}>
+            <Suspense fallback={<div>Loading...</div>}>
             <Routes>
                 {
                     Object.values(routeConfig).map(({element, path}) => (
@@ -16,7 +17,8 @@ export const AppRouter = () => {
                     ))
                 }
             </Routes>
-        </Suspense>
+            </Suspense>
+        </div>
     );
 };
 
