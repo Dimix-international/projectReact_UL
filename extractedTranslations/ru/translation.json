@@ -1,5 +1,8 @@
 {
+  "aboutLink": "aboutLink",
   "aboutsSite": "aboutsSite",
   "language": "language",
-  "mainPage": "mainPage"
+  "mainLink": "mainLink",
+  "mainPage": "mainPage",
+  "pageNotFound": "pageNotFound"
 }

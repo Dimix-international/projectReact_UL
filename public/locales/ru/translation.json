@@ -1,4 +1,7 @@
 {
   "testExample": "Тестовый пример",
-  "language": "Русский"
+  "language": "Русский",
+  "pageNotFound": "Страница не найдена",
+  "mainLink": "Главная",
+  "aboutLink": "О сайте"
 }

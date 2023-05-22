@@ -1,4 +1,7 @@
 {
   "testExample": "Test example",
-  "language": "English"
+  "language": "English",
+  "pageNotFound": "Page not Found",
+  "mainLink": "Main",
+  "aboutLink": "About"
 }
