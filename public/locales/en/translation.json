@@ -3,5 +3,7 @@
   "language": "English",
   "pageNotFound": "Page not Found",
   "mainLink": "Main",
-  "aboutLink": "About"
+  "aboutLink": "About",
+  "somethingError": "Something Error",
+  "refreshPage": "Refresh page"
 }

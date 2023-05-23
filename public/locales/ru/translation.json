@@ -3,5 +3,7 @@
   "language": "Русский",
   "pageNotFound": "Страница не найдена",
   "mainLink": "Главная",
-  "aboutLink": "О сайте"
+  "aboutLink": "О сайте",
+  "somethingError": "Произошла непредвиденная ошибка",
+  "refreshPage": "Обновить страницу"
 }

@@ -4,5 +4,7 @@
   "language": "language",
   "mainLink": "mainLink",
   "mainPage": "mainPage",
-  "pageNotFound": "pageNotFound"
+  "pageNotFound": "pageNotFound",
+  "refreshPage": "refreshPage",
+  "somethingError": "somethingError"
 }
