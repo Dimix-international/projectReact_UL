@@ -6,5 +6,6 @@
   "mainPage": "mainPage",
   "pageNotFound": "pageNotFound",
   "refreshPage": "refreshPage",
-  "somethingError": "somethingError"
+  "somethingError": "somethingError",
+  "toggle": "toggle"
 }
