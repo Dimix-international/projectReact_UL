@@ -21,8 +21,11 @@ module.exports = {
         'react',
         '@typescript-eslint',
         'i18next',
+        'react-hooks',
     ],
     rules: {
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
         'react/jsx-indent': [2, 4],
         // 1 - warning, 0 - отключено, 2 - правило работатает
         'react/jsx-indent-props': [2, 4],
@@ -42,6 +45,8 @@ module.exports = {
         'linebreak-style': 'off',
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
+        'jsx-a11y/no-static-element-interactions': 'off',
+        'jsx-a11y/click-events-have-key-events': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
@@ -54,9 +59,10 @@ module.exports = {
     },
     overrides: [
         {
-            files: ['**/src/**/*.test.{ts,tsx}'],
+            files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
             rules: {
                 'i18next/no-literal-string': 'off',
+                'max-len': 'off',
             },
         },
     ],
