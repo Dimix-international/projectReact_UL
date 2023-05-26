@@ -1,7 +1,9 @@
 {
   "aboutLink": "aboutLink",
   "aboutsSite": "aboutsSite",
+  "decrement": "decrement",
   "enter": "enter",
+  "increment": "increment",
   "language": "language",
   "mainLink": "mainLink",
   "mainPage": "mainPage",
@@ -9,7 +11,5 @@
   "refreshPage": "refreshPage",
   "shortLang": "shortLang",
   "somethingError": "somethingError",
-  "toggle": "toggle",
-  "increment": "increment",
-  "decrement": "decrement"
+  "toggle": "toggle"
 }
