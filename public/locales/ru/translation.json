@@ -8,5 +8,7 @@
   "refreshPage": "Обновить страницу",
   "toggle": "Переключить язык",
   "shortLang": "Ру",
-  "enter": "Войти"
+  "enter": "Войти",
+  "increment": "increment",
+  "decrement": "decrement"
 }

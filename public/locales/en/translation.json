@@ -8,5 +8,7 @@
   "refreshPage": "Refresh page",
   "toggle": "Toggle language",
   "shortLang": "En",
-  "enter": "Enter"
+  "enter": "Enter",
+  "increment": "increment",
+  "decrement": "decrement"
 }
