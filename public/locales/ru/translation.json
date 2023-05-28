@@ -10,5 +10,7 @@
   "shortLang": "Ру",
   "enter": "Войти",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "Enter username": "Введите username",
+  "Enter password": "Введите пароль"
 }
