@@ -49,11 +49,12 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'no-underscore-dangle': 'off',
         'no-param-reassign': 'off',
+        'react/jsx-no-useless-fragment': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
         }],
-        'max-len': ['error', { ignoreComments: true, code: 100 }],
+        'max-len': ['error', { ignoreComments: true, code: 130 }],
     },
     globals: {
         __IS_DEV__: true,
