@@ -4,6 +4,7 @@
   "pageNotFound": "Page not Found",
   "mainLink": "Main",
   "aboutLink": "About",
+  "profileLink": "Profile",
   "somethingError": "Something Error",
   "refreshPage": "Refresh page",
   "toggle": "Toggle language",
@@ -14,5 +15,6 @@
   "Enter username": "Enter username",
   "Enter password": "Enter password",
   "formAuth": "Authorization form",
-  "Incorrect login or password": "Incorrect login or password"
+  "Incorrect login or password": "Incorrect login or password",
+  "profile": "profile"
 }

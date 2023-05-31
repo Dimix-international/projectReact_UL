@@ -12,7 +12,6 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        // loginForm: loginReducer, //удаляем т.к. он асинхронный
     };
 
     const reducerManager = createReducerManager(rootReducer);
@@ -31,3 +30,6 @@ export function createReduxStore(
     store.reducerManager = reducerManager;
     return store;
 }
+
+// типы для action автоматом подхватывались
+export type AppDispatchType = ReturnType<typeof createReduxStore>['dispatch'];

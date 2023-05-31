@@ -4,6 +4,7 @@
   "pageNotFound": "Страница не найдена",
   "mainLink": "Главная",
   "aboutLink": "О сайте",
+  "profileLink": "Профиль",
   "somethingError": "Произошла непредвиденная ошибка",
   "refreshPage": "Обновить страницу",
   "toggle": "Переключить язык",
@@ -14,5 +15,6 @@
   "Enter username": "Введите username",
   "Enter password": "Введите пароль",
   "formAuth": "Форма авторизации",
-  "Incorrect login or password": "Неверный логин или пароль"
+  "Incorrect login or password": "Неверный логин или пароль",
+  "profile": "profile"
 }
