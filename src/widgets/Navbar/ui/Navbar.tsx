@@ -44,7 +44,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     className={cls.links}
                     onClick={onLogout}
                 >
-                    {t('Exit')}
+                    {t('exit')}
                 </Button>
             </div>
         );
