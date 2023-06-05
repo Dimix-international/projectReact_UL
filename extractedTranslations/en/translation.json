@@ -7,6 +7,7 @@
   "aboutLink": "aboutLink",
   "aboutsSite": "aboutsSite",
   "decrement": "decrement",
+  "edit": "edit",
   "enter": "enter",
   "exit": "exit",
   "formAuth": "formAuth",
@@ -19,5 +20,7 @@
   "refreshPage": "refreshPage",
   "shortLang": "shortLang",
   "somethingError": "somethingError",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "yourLastname": "yourLastname",
+  "yourName": "yourName"
 }

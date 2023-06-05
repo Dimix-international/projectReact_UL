@@ -48,22 +48,16 @@ describe('loginByUsername.test', () => {
     });
 }); */
 
-import axios from 'axios';
 import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
 
-jest.mock('axios');
-
-// для ts
-const mockedAxios = jest.mocked(axios, true);
-
 describe('loginByUsername.test', () => {
     test('success login', async () => {
         const userValue = { username: 'admin', id: '1' };
-        mockedAxios.post.mockReturnValue(Promise.resolve({ data: userValue }));
 
         const thunk = new TestAsyncThunk(loginByUsername);
+        thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
         const result = await thunk.callThunk({ username: 'admin', password: '123' });
 
         // проверим что dispatch был вызван с аргументами
@@ -71,7 +65,7 @@ describe('loginByUsername.test', () => {
         // проверим что dispatch был вызван 3 раза
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         // проверим что метод пост был вызван
-        expect(mockedAxios.post).toHaveBeenCalled();
+        expect(thunk.api.post).toHaveBeenCalled();
         // проверим request status
         expect(result.meta.requestStatus).toBe('fulfilled');
         // проверим payload
@@ -79,9 +73,8 @@ describe('loginByUsername.test', () => {
     });
 
     test('error login', async () => {
-        mockedAxios.post.mockReturnValue(Promise.reject());
-
         const thunk = new TestAsyncThunk(loginByUsername);
+        thunk.api.post.mockReturnValue(Promise.reject());
         const result = await thunk.callThunk({ username: 'admin', password: '123' });
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);

@@ -12,27 +12,31 @@ interface LoginByUsernameProps {
 // 1-ый то что возвращаем
 // 2 - аргументы
 // 3- все параметры (смотри type AsyncThunkConfig ) и их мы можем переопределять
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
-    'login/loginByUsername',
-    async (payload, thunkAPI) => {
-        const { extra, dispatch, rejectWithValue } = thunkAPI;
+export const loginByUsername = createAsyncThunk<
+    User,
+    LoginByUsernameProps,
+    ThunkConfig<string>
+    >(
+        'login/loginByUsername',
+        async (payload, thunkAPI) => {
+            const { extra, dispatch, rejectWithValue } = thunkAPI;
 
-        try {
+            try {
             /* const { data } = await axios.post<User>('http://localhost:8000/login', payload); */
-            const { data } = await extra.api.post<User>('/login', payload);
+                const { data } = await extra.api.post<User>('/login', payload);
 
-            if (!data) {
-                throw new Error();
+                if (!data) {
+                    throw new Error();
+                }
+                // имитируем хранение токена
+                localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
+
+                dispatch(userActions.setAuthData(data));
+                extra.navigate?.('/profile');
+
+                return data;
+            } catch (e) {
+                return rejectWithValue('authError');
             }
-            // имитируем хранение токена
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
-
-            dispatch(userActions.setAuthData(data));
-            extra.navigate('/profile');
-
-            return data;
-        } catch (e) {
-            return rejectWithValue('authError');
-        }
-    },
-);
+        },
+    );

@@ -49,6 +49,7 @@ module.exports = {
         'jsx-a11y/click-events-have-key-events': 'off',
         'no-underscore-dangle': 'off',
         'no-param-reassign': 'off',
+        'no-undef': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
