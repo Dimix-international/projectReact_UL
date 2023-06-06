@@ -11,5 +11,9 @@
   "yourCity": "Сity",
   "Username": "Username",
   "Avatar": "Avatar",
-  "Currency": "Currency"
+  "Currency": "Currency",
+  "Серверная ошибка при сохранении": "Server error",
+  "Данные не указаны": "No data",
+  "Имя и фамилия обязательны": "First and last name are required!",
+  "Некорректный возраст": "Incorrect age!"
 }

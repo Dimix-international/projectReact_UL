@@ -4,15 +4,20 @@ import {
     fetchProfileData,
     getProfileError,
     getProfileForm,
-    getProfileLoading, getProfileReadOnly, profileActions,
+    getProfileLoading,
+    getProfileReadOnly,
+    getProfileValidateErrors,
+    profileActions,
     ProfileCard,
-    profileReducer,
+    profileReducer, ValidateProfileError,
 } from 'entities/Profile';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { TextCustom, TextTheme } from 'shared/ui/TextCustom/TextCustom';
+import { useTranslation } from 'react-i18next';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -25,17 +30,24 @@ const reducers: ReducersList = {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
+    const { t } = useTranslation('profile');
 
     const formData = useSelector(getProfileForm);
 
     const isLoading = useSelector(getProfileLoading);
     const error = useSelector(getProfileError);
     const readOnly = useSelector(getProfileReadOnly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    };
 
     const onChangeFirstName = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));
     }, [dispatch]);
-
     const onChangeLastName = useCallback((value: string) => {
         dispatch(profileActions.updateProfile({ lastname: value || '' }));
     }, [dispatch]);
@@ -65,13 +77,24 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     }, [dispatch]);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     return (
         <DynamicModuleLoader reducers={reducers}>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader readOnly={readOnly} />
+                {
+                    validateErrors?.length && validateErrors.map((err) => (
+                        <TextCustom
+                            key={err}
+                            theme={TextTheme.ERROR}
+                            text={validateErrorTranslates[err]}
+                        />
+                    ))
+                }
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
