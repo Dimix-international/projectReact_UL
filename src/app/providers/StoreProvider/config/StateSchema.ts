@@ -38,5 +38,6 @@ export interface ThunkExtraArg {
 // T - тип для ошибки
 export interface ThunkConfig<T> {
     rejectValue: T,
-    extra: ThunkExtraArg
+    extra: ThunkExtraArg,
+    state: StateSchema,
 }

@@ -17,5 +17,8 @@
   "Enter password": "Enter password",
   "formAuth": "Authorization form",
   "Incorrect login or password": "Incorrect login or password",
-  "profile": "profile"
+  "profile": "Profile",
+  "Cancel": "Cancel",
+  "Currency": "Currency",
+  "Country": "Country"
 }

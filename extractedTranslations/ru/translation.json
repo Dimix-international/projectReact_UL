@@ -1,9 +1,17 @@
 {
+  "Avatar": "Avatar",
+  "Cancel": "Cancel",
+  "Country": "Country",
+  "Currency": "Currency",
   "Enter": "Enter",
   "Enter password": "Enter password",
   "Enter username": "Enter username",
   "Exit": "Exit",
   "Incorrect login or password": "Incorrect login or password",
+  "Occurred something error": "Occurred something error",
+  "Please, refresh page!": "Please, refresh page!",
+  "Save": "Save",
+  "Username": "Username",
   "aboutLink": "aboutLink",
   "aboutsSite": "aboutsSite",
   "decrement": "decrement",
@@ -21,6 +29,8 @@
   "shortLang": "shortLang",
   "somethingError": "somethingError",
   "toggle": "toggle",
+  "yourAge": "yourAge",
+  "yourCity": "yourCity",
   "yourLastname": "yourLastname",
   "yourName": "yourName"
 }

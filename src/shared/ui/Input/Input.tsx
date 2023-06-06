@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     InputHTMLAttributes, memo, ChangeEvent, useState, useEffect, useRef,
 } from 'react';
@@ -7,13 +7,14 @@ import cls from './Input.module.scss';
 // Omit - забираем все пропсы, и можем исключить не нужные
 // используем т.к. конфликт типов value и onChange -
 // наше и они есть в  InputHTMLAttributes
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps{
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
+    readOnly?: boolean
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,6 +25,7 @@ export const Input = memo((props: InputProps) => {
         autofocus,
         placeholder,
         onChange,
+        readOnly = false,
         ...restProps
     } = props;
 
@@ -56,8 +58,12 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autofocus]);
 
+    const mods: Mods = {
+        [cls.readonly]: readOnly,
+    };
+
     return (
-        <div className={classNames(cls.InputWrapper, {}, [className])}>
+        <div className={classNames(cls.InputWrapper, mods, [className])}>
             {placeholder && (
                 <div className={cls.placeholder}>
                     {`${placeholder}>`}
@@ -73,11 +79,12 @@ export const Input = memo((props: InputProps) => {
                     onFocus={onFocusHandler}
                     onBlur={onBlurHandler}
                     onSelect={onSelectHandler}
+                    readOnly={readOnly}
                     {...restProps}
                 />
-                {isFocused && (
+                {isFocused && !readOnly && (
                     <span
-                        className={cls.caret}
+                        className={classNames(cls.caret, {}, [])}
                         style={{
                             left: `${caretPosition * 9}px`,
                         }}

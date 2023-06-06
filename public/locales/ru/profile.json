@@ -2,5 +2,14 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "yourName": "Имя",
-  "yourLastname": "Фамилия"
+  "yourLastname": "Фамилия",
+  "Occurred something error": "Произошла какая-то ошибка!",
+  "Please, refresh page!": "Пожалуйста, обновите страницу!",
+  "Cancel": "Отменить",
+  "Save": "Сохранить",
+  "yourAge": "Ваш возраст",
+  "yourCity": "Город",
+  "Username": "Имя пользователя",
+  "Avatar": "Ссылка на аватар",
+  "Currency": "Валюта"
 }

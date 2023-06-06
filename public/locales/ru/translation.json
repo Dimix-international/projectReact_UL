@@ -17,5 +17,7 @@
   "Enter password": "Введите пароль",
   "formAuth": "Форма авторизации",
   "Incorrect login or password": "Неверный логин или пароль",
-  "profile": "profile"
+  "Cancel": "Отменить",
+  "Currency": "Валюта",
+  "Country": "Страна"
 }

@@ -2,5 +2,14 @@
   "profile": "Profile",
   "edit": "Edit",
   "yourName": "Name",
-  "yourLastname": "Last name"
+  "yourLastname": "Last name",
+  "Occurred something error": "Occurred something error!",
+  "Please, refresh page!": "Please, refresh page!",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "yourAge": "Your age",
+  "yourCity": "Сity",
+  "Username": "Username",
+  "Avatar": "Avatar",
+  "Currency": "Currency"
 }
