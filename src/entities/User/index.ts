@@ -11,3 +11,7 @@ export {
 export {
     getUserAuthData,
 } from './model/selectors/getUserAuthData/getUserAuthData';
+
+export {
+    getUserMounted,
+} from './model/selectors/getUserMounted/getUserMounted';
