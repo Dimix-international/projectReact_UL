@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { TextCustom, TextTheme } from './TextCustom';
+import { TextCustom, TextSize, TextTheme } from './TextCustom';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta: Meta<typeof TextCustom> = {
@@ -40,5 +40,21 @@ export const TextError: Story = {
     args: {
         text: 'text',
         theme: TextTheme.ERROR,
+    },
+};
+
+export const TextSizeL: Story = {
+    args: {
+        text: 'text',
+        title: 'Title',
+        size: TextSize.L,
+    },
+};
+
+export const TextSizeM: Story = {
+    args: {
+        text: 'text',
+        title: 'Title',
+        size: TextSize.M,
     },
 };
