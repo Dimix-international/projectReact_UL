@@ -26,12 +26,14 @@
   "enter": "enter",
   "exit": "exit",
   "formAuth": "formAuth",
+  "goToTheArticles": "goToTheArticles",
   "increment": "increment",
   "language": "language",
   "mainLink": "mainLink",
   "mainPage": "mainPage",
   "pageNotFound": "pageNotFound",
   "profile": "profile",
+  "readMore": "readMore",
   "refreshPage": "refreshPage",
   "shortLang": "shortLang",
   "somethingError": "somethingError",
@@ -43,5 +45,12 @@
   "Данные не указаны": "Данные не указаны",
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",
   "Некорректный возраст": "Некорректный возраст",
-  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении"
+  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении",
+  "Читать далее": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  }
 }

@@ -51,6 +51,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/jsx-no-useless-fragment': 'off',
+        'react/no-array-index-key': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
             ignoreAttribute: ['data-testid', 'to'],
