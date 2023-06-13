@@ -16,14 +16,12 @@ export const AppRouter = memo(() => {
     ), []);
 
     return (
-        <div className="page-wrapper">
-            <Suspense fallback={<PageLoader />}>
-                <Routes>
-                    {
-                        Object.values(routeConfig).map(renderWithWrapper)
-                    }
-                </Routes>
-            </Suspense>
-        </div>
+        <Suspense fallback={<PageLoader />}>
+            <Routes>
+                {
+                    Object.values(routeConfig).map(renderWithWrapper)
+                }
+            </Routes>
+        </Suspense>
     );
 });

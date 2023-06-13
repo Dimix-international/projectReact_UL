@@ -30,19 +30,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     const renderArticle = useCallback((article: Article) => (
         <ArticleListItem
+            className={cls.card}
             key={article.id}
             article={article}
             view={view}
         />
     ), [view]);
-
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                {getSkeletons(view)}
-            </div>
-        );
-    }
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
@@ -50,6 +43,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 articles.length > 0
                     ? articles.map(renderArticle)
                     : null
+            }
+            {
+                isLoading && getSkeletons(view)
             }
         </div>
     );
