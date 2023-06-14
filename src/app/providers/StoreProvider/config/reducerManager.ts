@@ -3,6 +3,8 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchemaKey, StateSchema, ReducerManager } from './StateSchema';
 
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
+
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
     const reducers = { ...initialReducers };
 

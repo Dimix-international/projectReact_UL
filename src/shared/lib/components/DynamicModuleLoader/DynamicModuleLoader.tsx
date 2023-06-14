@@ -25,12 +25,17 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
     useEffect(() => {
         // подгрузим редьюсер при монтировании компоненты
+        const mountedReducers = store.reducerManager.getReducerMap();
 
         Object.entries(reducers).forEach(([name, reducer]) => {
-            store.reducerManager.add(name as StateSchemaKey, reducer);
+            const mounted = mountedReducers[name as StateSchemaKey];
 
-            // отследим когда редьюсеры инициализируются
-            dispatch({ type: `@INIT ${name} reducer` });
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer);
+
+                // отследим когда редьюсеры инициализируются
+                dispatch({ type: `@INIT ${name} reducer` });
+            }
         });
 
         return () => {
