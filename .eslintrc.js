@@ -52,11 +52,12 @@ module.exports = {
         'no-undef': 'off',
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
+        'arrow-body-style': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to'],
+            ignoreAttribute: ['data-testid', 'to', 'target'],
         }],
-        'max-len': ['error', { ignoreComments: true, code: 130 }],
+        'max-len': ['error', { ignoreComments: true, code: 200 }],
         '@typescript-eslint/no-unused-vars': [
             'warn',
             { argsIgnorePattern: '^_' },

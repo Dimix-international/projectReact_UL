@@ -15,7 +15,7 @@ const commentsAdapter = createEntityAdapter<Comment>({
 
 // для получения комментариев
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsComments || commentsAdapter.getInitialState(),
+    (state) => state.articleDetailsPage?.comments || commentsAdapter.getInitialState(),
     // commentsAdapter.getInitialState() - вернет дефолтный стейт
 );
 

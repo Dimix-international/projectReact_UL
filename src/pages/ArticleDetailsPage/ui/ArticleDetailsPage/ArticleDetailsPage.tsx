@@ -1,9 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
+import { TextCustom, TextSize } from 'shared/ui/TextCustom/TextCustom';
 import { CommentList } from 'entities/Comment';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useSelector } from 'react-redux';
@@ -13,25 +13,39 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/Page';
+import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
+import {
+    articleDetailsPageRecommendationReducer,
+    getArticleRecommendations,
+} from '../../model/slices/articleDetailsPageRecommendationSlice';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsCommentsReducer, getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+    fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducer } from '../../model/slices/index';
 
 interface ArticleDetailsPageProps {
     className?: string;
 }
 
 const reducersList: ReducersList = {
-    articleDetailsComments: articleDetailsCommentsReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{ id: string }>();
+
     const comments = useSelector(getArticleComments.selectAll);
+    const recommendations = useSelector(getArticleRecommendations.selectAll);
+
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+    const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
+
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -45,6 +59,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
+        dispatch(fetchArticleRecommendations());
     });
 
     if (!id) {
@@ -63,6 +78,18 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 </Button>
                 <ArticleDetails id={id} />
                 <TextCustom
+                    size={TextSize.L}
+                    title={t('Recommend')}
+                    className={cls.commentTitle}
+                />
+                <ArticleList
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                    className={cls.recommend}
+                    target="_blank"
+                />
+                <TextCustom
+                    size={TextSize.L}
                     title={t('Comments')}
                     className={cls.commentTitle}
                 />
