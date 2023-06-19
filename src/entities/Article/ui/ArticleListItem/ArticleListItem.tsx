@@ -2,7 +2,6 @@ import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { useNavigate } from 'react-router-dom';
 import { Card } from 'shared/ui/Card/Card';
 import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
 import { IconComponent } from 'shared/ui/IconComponent/IconComponent';
@@ -11,6 +10,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from 'shared/const/localStorage';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
@@ -22,6 +22,7 @@ interface ArticleListItemProps {
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    index: number
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -30,15 +31,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         article,
         view = ArticleView.SMALL,
         target = '_self',
+        index,
     } = props;
 
     const { t } = useTranslation('article');
-    const navigate = useNavigate();
     const [, bindHover] = useHover();
-
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.article_details + article.id);
-    }, [article.id, navigate]);
 
     const types = <TextCustom text={article.type.join(', ')} className={cls.types} />;
     const views = (
@@ -47,6 +44,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <IconComponent Svg={EyeIcon} />
         </>
     );
+
+    const handlerButtonClick = useCallback(() => {
+        sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE, String(index));
+    }, [index]);
 
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks.find(
@@ -72,7 +73,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink to={RoutePath.article_details + article.id}>
-                            <Button theme={ButtonTheme.OUTLINE}>
+                            <Button
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={handlerButtonClick}
+                            >
                                 {t('readMore')}
                             </Button>
                         </AppLink>

@@ -6,10 +6,8 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
-import { useSearchParams } from 'react-router-dom';
-import { ArticlesPageFilters } from '../ArticlePageFilters/ArticlesPageFilters';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
-import cls from './ArticlesPage.module.scss';
 import {
     articlesListLoading,
     articlesListView,
@@ -30,6 +28,7 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(articlesListLoading);
     const view = useSelector(articlesListView);
+    const { pathname } = useLocation();
 
     const [searchParams] = useSearchParams();
 
@@ -47,11 +46,14 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
             removeAfterUnmount={false}
         >
             <Page
-                className={classNames(cls.ArticlePage, {}, [className])}
-                onScrollEnd={onLoadNextPart}
+                className={classNames('', {}, [className])}
             >
-                <ArticlesPageFilters />
-                <ArticleList articles={articles} view={view} isLoading={isLoading} />
+                <ArticleList
+                    articles={articles}
+                    view={view}
+                    isLoading={isLoading}
+                    onLoadNextPart={onLoadNextPart}
+                />
             </Page>
         </DynamicModuleLoader>
     );
