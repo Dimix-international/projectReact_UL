@@ -6,7 +6,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page/Page';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
 import {
     articlesListLoading,
@@ -28,7 +28,6 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(articlesListLoading);
     const view = useSelector(articlesListView);
-    const { pathname } = useLocation();
 
     const [searchParams] = useSearchParams();
 

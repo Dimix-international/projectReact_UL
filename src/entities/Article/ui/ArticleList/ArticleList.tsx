@@ -47,28 +47,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const virtuosoRef = useRef<VirtuosoHandle>(null);
 
     useEffect(() => {
-        let timeoutId: NodeJS.Timeout;
-        const page = sessionStorage.getItem(ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE);
-
-        // eslint-disable-next-line prefer-const
-        timeoutId = setTimeout(() => {
-            const index = page ? +page : 0;
-            if (view === ArticleView.SMALL && virtuosoGridRef.current) {
-                virtuosoGridRef.current.scrollToIndex(index);
-                return;
-            }
-
-            if (view === ArticleView.BIG && virtuosoRef.current) {
-                virtuosoRef.current.scrollToIndex({
-                    index,
-                });
-            }
-        }, 100);
-
-        return () => clearTimeout(timeoutId);
-    }, [view]);
-
-    useEffect(() => {
         const errorHandler = (e: ErrorEvent) => {
             if (e.message === 'ResizeObserver loop limit exceeded') {
                 const resizeObserverErrDiv = document.getElementById(
@@ -91,21 +69,24 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }, []);
 
     useEffect(() => {
-        if (!isLoading && articles.length) {
-            const page = sessionStorage.getItem(ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE);
-            const index = page ? +page : 0;
+        const page = sessionStorage.getItem(ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE);
+        const index = page ? +page : 0;
 
+        setTimeout(() => {
             if (view === ArticleView.SMALL && virtuosoGridRef.current) {
-                virtuosoGridRef.current.scrollToIndex(index);
+                virtuosoGridRef.current.scrollToIndex({
+                    index,
+                });
                 return;
             }
+            // тут можно и без setTimeout
             if (view === ArticleView.BIG && virtuosoRef.current) {
                 virtuosoRef.current.scrollToIndex({
                     index,
                 });
             }
-        }
-    }, [articles.length, isLoading, view]);
+        }, 100);
+    }, [view]);
 
     const renderArticle = (index: number, article: Article) => (
         <ArticleListItem
@@ -157,7 +138,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         data={articles}
                         itemContent={renderArticle}
                         endReached={onLoadNextPart}
-                        initialTopMostItemIndex={0}
+                        initialTopMostItemIndex={1}
                         components={{
                             Header,
                             Footer,
@@ -175,10 +156,11 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         data={articles}
                         itemContent={renderArticle}
                         listClassName={cls.itemsWrapper}
-                        scrollSeekConfiguration={{
+                        atTopStateChange={() => false}
+                        /*                         scrollSeekConfiguration={{
                             enter: (velocity) => Math.abs(velocity) > 200,
                             exit: (velocity) => Math.abs(velocity) < 30,
-                        }}
+                        }} */
                     />
                 )
             }
