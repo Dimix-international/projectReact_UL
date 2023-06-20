@@ -8,6 +8,8 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { TextCustom, TextTheme } from 'shared/ui/TextCustom/TextCustom';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -36,16 +38,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(
-                cls.Navbar,
-                {},
-                [className],
-            )}
-            >
-                {' '}
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <TextCustom
                     className={cls.appName}
-                    title={t('React app')}
+                    title={t('Ulbi TV App')}
                     theme={TextTheme.INVERTED}
                 />
                 <AppLink
@@ -55,14 +51,22 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Button
-                    theme={ButtonTheme.CLEAR_INVERTED}
-                    className={cls.links}
-                    onClick={onLogout}
-                >
-                    {t('exit')}
-                </Button>
-            </div>
+                <Dropdown
+                    direction="bottom left"
+                    className={cls.dropdown}
+                    items={[
+                        {
+                            content: t('profile'),
+                            href: RoutePath.profile + authData.id,
+                        },
+                        {
+                            content: t('exit'),
+                            onClick: onLogout,
+                        },
+                    ]}
+                    trigger={<Avatar size={30} src={authData.avatar} />}
+                />
+            </header>
         );
     }
 

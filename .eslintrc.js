@@ -55,7 +55,7 @@ module.exports = {
         'arrow-body-style': 'off',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
-            ignoreAttribute: ['data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
+            ignoreAttribute: ['as','data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
         }],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         '@typescript-eslint/no-unused-vars': [
