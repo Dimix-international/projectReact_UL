@@ -12,10 +12,13 @@ interface CommentCardProps {
     className?: string;
     comment?: Comment;
     isLoading?: boolean;
+    index?: number
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-    const { className, comment, isLoading } = props;
+    const {
+        className, comment, isLoading, index,
+    } = props;
 
     if (isLoading) {
         return (

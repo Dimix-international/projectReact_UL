@@ -43,27 +43,26 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 // 3- все параметры (смотри type AsyncThunkConfig ) и их мы можем переопределять
 export var loginByUsername = createAsyncThunk('login/loginByUsername', function (payload, thunkAPI) { return __awaiter(void 0, void 0, void 0, function () {
     var extra, dispatch, rejectWithValue, data, e_1;
-    var _a;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
                 extra = thunkAPI.extra, dispatch = thunkAPI.dispatch, rejectWithValue = thunkAPI.rejectWithValue;
-                _b.label = 1;
+                _a.label = 1;
             case 1:
-                _b.trys.push([1, 3, , 4]);
+                _a.trys.push([1, 3, , 4]);
                 return [4 /*yield*/, extra.api.post('/login', payload)];
             case 2:
-                data = (_b.sent()).data;
+                data = (_a.sent()).data;
                 if (!data) {
                     throw new Error();
                 }
                 // имитируем хранение токена
                 localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(data));
                 dispatch(userActions.setAuthData(data));
-                (_a = extra.navigate) === null || _a === void 0 ? void 0 : _a.call(extra, '/profile');
+                // extra.navigate?.('/profile');
                 return [2 /*return*/, data];
             case 3:
-                e_1 = _b.sent();
+                e_1 = _a.sent();
                 return [2 /*return*/, rejectWithValue('authError')];
             case 4: return [2 /*return*/];
         }

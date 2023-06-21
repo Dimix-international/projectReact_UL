@@ -12,10 +12,8 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { Provider } from 'react-redux';
 import { createReduxStore } from 'app/providers/StoreProvider/config/store';
-import { useNavigate } from 'react-router-dom';
 export var StoreProvider = function (props) {
     var children = props.children, initialState = props.initialState, asyncReducers = props.asyncReducers;
-    var navigate = useNavigate();
-    var store = createReduxStore(initialState, asyncReducers, navigate);
+    var store = createReduxStore(initialState, asyncReducers);
     return (_jsx(Provider, __assign({ store: store }, { children: children })));
 };

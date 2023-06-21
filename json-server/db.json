@@ -595,6 +595,12 @@
       "userId": "1",
       "text": "python!!!",
       "id": "p5rMadd"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "12345",
+      "id": "ArUEJ7f"
     }
   ],
   "users": [
@@ -616,7 +622,7 @@
   "profile": [
     {
       "id": "1",
-      "first": "jghwer",
+      "first": "Dimon",
       "lastname": "asfewr",
       "age": 465,
       "currency": "RUB",

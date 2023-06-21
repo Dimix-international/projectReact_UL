@@ -29,6 +29,7 @@ export var ButtonTheme;
     ButtonTheme["CLEAR"] = "clear";
     ButtonTheme["CLEAR_INVERTED"] = "clearInverted";
     ButtonTheme["OUTLINE"] = "outline";
+    ButtonTheme["OUTLINE_RED"] = "outline-red";
     ButtonTheme["BACKGROUND"] = "background";
     ButtonTheme["BACKGROUND_INVERTED"] = "backgroundInverted";
 })(ButtonTheme || (ButtonTheme = {}));

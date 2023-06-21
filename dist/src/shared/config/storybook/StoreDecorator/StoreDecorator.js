@@ -13,8 +13,8 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import 'app/styles/index.scss';
 import { StoreProvider } from 'app/providers/StoreProvider';
 import { loginReducer } from 'features/AuthByUsername/model/slice/loginSlice';
-import { profileReducer } from 'entities/Profile';
-// для storybook
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
+// для storybook добавляем редьюсеры
 var defaultAsyncReducers = {
     loginForm: loginReducer,
     profile: profileReducer,

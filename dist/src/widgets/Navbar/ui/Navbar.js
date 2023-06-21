@@ -17,6 +17,11 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { TextCustom, TextTheme } from 'shared/ui/TextCustom/TextCustom';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import cls from './Navbar.module.scss';
 export var Navbar = memo(function (_a) {
     var className = _a.className;
@@ -34,7 +39,16 @@ export var Navbar = memo(function (_a) {
         dispatch(userActions.logout());
     }, [dispatch]);
     if (authData) {
-        return (_jsx("div", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: _jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onLogout }, { children: t('exit') })) })));
+        return (_jsxs("header", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(TextCustom, { className: cls.appName, title: t('Ulbi TV App'), theme: TextTheme.INVERTED }), _jsx(AppLink, __assign({ to: RoutePath.article_create, theme: AppLinkTheme.SECONDARY, className: cls.createBtn }, { children: t('Создать статью') })), _jsx(Dropdown, { direction: "bottom left", className: cls.dropdown, items: [
+                        {
+                            content: t('profile'),
+                            href: RoutePath.profile + authData.id,
+                        },
+                        {
+                            content: t('exit'),
+                            onClick: onLogout,
+                        },
+                    ], trigger: _jsx(Avatar, { size: 30, src: authData.avatar }) })] })));
     }
     return (_jsxs("div", __assign({ className: classNames(cls.Navbar, {}, [className]) }, { children: [_jsx(Button, __assign({ theme: ButtonTheme.CLEAR_INVERTED, className: cls.links, onClick: onOpenModal }, { children: t('enter') })), isAuthModal && (_jsx(LoginModal, { isOpen: isAuthModal, onClose: onCloseModal }))] })));
 });

@@ -12,22 +12,22 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData, getProfileData, getProfileError, getProfileLoading, ProfileCard, profileReducer, } from 'entities/Profile';
-import { useEffect } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSelector } from 'react-redux';
+import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+import { Page } from 'widgets/Page/Page';
+import { EditableProfileCard } from 'features/editableProfileCard';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 var reducers = {
     profile: profileReducer,
 };
 var ProfilePage = function (_a) {
     var className = _a.className;
-    var dispatch = useAppDispatch();
-    var data = useSelector(getProfileData);
-    var isLoading = useSelector(getProfileLoading);
-    var error = useSelector(getProfileError);
-    useEffect(function () {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
-    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsx("div", __assign({ className: classNames('', {}, [className]) }, { children: _jsx(ProfileCard, { data: data, isLoading: isLoading, error: error }) })) })));
+    var t = useTranslation('profile').t;
+    var id = useParams().id;
+    if (!id) {
+        return _jsx(TextCustom, { text: t('Профиль не найден') });
+    }
+    return (_jsx(DynamicModuleLoader, __assign({ reducers: reducers }, { children: _jsx(Page, __assign({ className: classNames('', {}, [className]) }, { children: _jsx(EditableProfileCard, { id: id }) })) })));
 };
 export default ProfilePage;

@@ -1,6 +1,7 @@
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import LoginForm from './LoginForm';
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 var meta = {
@@ -10,7 +11,7 @@ var meta = {
     tags: ['autodocs'],
     decorators: [StoreDecorator({
             loginForm: { username: 'admin', password: '123' },
-        })],
+        }), RouterDecorator],
 };
 export default meta;
 export var LoginFormLight = {

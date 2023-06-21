@@ -7,7 +7,6 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Country } from 'entities/Country/model/types/country';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect/CountrySelect';
 import { Currency, CurrencySelect } from 'entities/Currency';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/profile';
 

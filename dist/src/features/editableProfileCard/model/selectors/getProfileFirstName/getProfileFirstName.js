@@ -1,0 +1,1 @@
+export var getProfileFirstName = function (state) { var _a, _b; return ((_b = (_a = state === null || state === void 0 ? void 0 : state.profile) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.first) || ''; };

@@ -3,7 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Button, ButtonSize, ButtonTheme } from './Button';
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 var meta = {
-    title: 'ui/Button',
+    title: 'shared/Button',
     component: Button,
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
@@ -32,6 +32,13 @@ export var OutlineDark = {
     args: {
         children: 'Outline',
         theme: ButtonTheme.OUTLINE,
+    },
+    decorators: [ThemeDecorator(Theme.DARK)],
+};
+export var OutlineRed = {
+    args: {
+        children: 'Outline',
+        theme: ButtonTheme.OUTLINE_RED,
     },
     decorators: [ThemeDecorator(Theme.DARK)],
 };

@@ -38,10 +38,10 @@ import axios from 'axios';
 jest.mock('axios');
 var mockedAxios = jest.mocked(axios, true);
 var TestAsyncThunk = /** @class */ (function () {
-    function TestAsyncThunk(actionCreator) {
+    function TestAsyncThunk(actionCreator, state) {
         this.actionCreator = actionCreator;
         this.dispatch = jest.fn();
-        this.getState = jest.fn();
+        this.getState = jest.fn(function () { return state; });
         this.api = mockedAxios;
         this.navigate = jest.fn();
     }

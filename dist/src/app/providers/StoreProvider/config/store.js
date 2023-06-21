@@ -13,9 +13,12 @@ import { configureStore, } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
+import { scrollRestorationReducer } from 'widgets/Page/features/ScrollRestoration';
+import { rtkApi } from 'shared/api/rtkApi';
 import { createReducerManager } from './reducerManager';
-export function createReduxStore(initialState, asyncReducers, navigate) {
-    var rootReducer = __assign(__assign({}, asyncReducers), { counter: counterReducer, user: userReducer });
+export function createReduxStore(initialState, asyncReducers) {
+    var _a;
+    var rootReducer = __assign(__assign({}, asyncReducers), (_a = { counter: counterReducer, user: userReducer, scrollRestoration: scrollRestorationReducer }, _a[rtkApi.reducerPath] = rtkApi.reducer, _a));
     var reducerManager = createReducerManager(rootReducer);
     // принимает 3 типа
     // 1- тип стора
@@ -23,7 +26,6 @@ export function createReduxStore(initialState, asyncReducers, navigate) {
     // 3 - Middlewares
     var extraArg = {
         api: $api,
-        navigate: navigate,
     };
     var store = configureStore({
         reducer: reducerManager.reduce,
@@ -33,7 +35,7 @@ export function createReduxStore(initialState, asyncReducers, navigate) {
             thunk: {
                 extraArgument: extraArg,
             },
-        }); },
+        }).concat(rtkApi.middleware); },
     });
     // @ts-ignore
     store.reducerManager = reducerManager;

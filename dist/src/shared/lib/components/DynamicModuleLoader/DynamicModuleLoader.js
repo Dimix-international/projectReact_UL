@@ -7,11 +7,15 @@ export var DynamicModuleLoader = function (props) {
     var dispatch = useDispatch();
     useEffect(function () {
         // подгрузим редьюсер при монтировании компоненты
+        var mountedReducers = store.reducerManager.getReducerMap();
         Object.entries(reducers).forEach(function (_a) {
             var name = _a[0], reducer = _a[1];
-            store.reducerManager.add(name, reducer);
-            // отследим когда редьюсеры инициализируются
-            dispatch({ type: "@INIT ".concat(name, " reducer") });
+            var mounted = mountedReducers[name];
+            if (!mounted) {
+                store.reducerManager.add(name, reducer);
+                // отследим когда редьюсеры инициализируются
+                dispatch({ type: "@INIT ".concat(name, " reducer") });
+            }
         });
         return function () {
             if (removeAfterUnmount) {

@@ -1,6 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-var initialState = {};
+var initialState = {
+    _mounted: false,
+};
 export var userSlice = createSlice({
     name: 'user',
     initialState: initialState,
@@ -13,6 +15,7 @@ export var userSlice = createSlice({
             if (user) {
                 state.authData = JSON.parse(user);
             }
+            state._mounted = true;
         },
         logout: function (state) {
             state.authData = undefined;
