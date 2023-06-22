@@ -14,6 +14,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -38,7 +39,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
     });
 
     return (
-        <>
+        <VStack max gap="16">
             <TextCustom
                 size={TextSize.L}
                 title={t('Comments')}
@@ -49,6 +50,6 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
                 isLoading={commentsIsLoading}
                 comments={comments}
             />
-        </>
+        </VStack>
     );
 });

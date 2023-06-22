@@ -138,7 +138,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                         data={articles}
                         itemContent={renderArticle}
                         endReached={onLoadNextPart}
-                        initialTopMostItemIndex={1}
+                        initialTopMostItemIndex={0}
                         components={{
                             Header,
                             Footer,

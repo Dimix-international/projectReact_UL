@@ -46,13 +46,13 @@ describe('features/EditableProfileCard', () => {
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
-        await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
+        await userEvent.clear(screen.getByTestId('ProfileCard.firstname')); // очищаем значения
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
+        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user'); // записываем значения
         await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'user');
 
-        expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user');
+        expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user'); // проверяем есть ли значение
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.CancelButton'));
@@ -69,11 +69,11 @@ describe('features/EditableProfileCard', () => {
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 
-        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
+        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument(); // проверяем появился ли параграф
     });
 
     test('Если нет ошибок валидации, то на сервер должен уйти PUT запрос', async () => {
-        const mockPutReq = jest.spyOn($api, 'put');
+        const mockPutReq = jest.spyOn($api, 'put'); // мокаем запрос
         componentRender(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditButton'));
 
@@ -81,6 +81,6 @@ describe('features/EditableProfileCard', () => {
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.SaveButton'));
 
-        expect(mockPutReq).toHaveBeenCalled();
+        expect(mockPutReq).toHaveBeenCalled(); // проверяем вызвали ли запрос
     });
 });

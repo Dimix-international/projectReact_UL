@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { TextCustom, TextTheme } from 'shared/ui/TextCustom/TextCustom';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -23,6 +25,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const dispatch = useDispatch();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true);
@@ -55,6 +62,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     direction="bottom left"
                     className={cls.dropdown}
                     items={[
+                        ...(isAdminPanelAvailable ? [{
+                            content: t('Adminka'),
+                            href: RoutePath.admin_panel,
+                        }] : []),
                         {
                             content: t('profile'),
                             href: RoutePath.profile + authData.id,

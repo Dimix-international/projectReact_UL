@@ -1,5 +1,7 @@
 {
   " No data yet!": " No data yet!",
+  "Admin panel": "Admin panel",
+  "Adminka": "Adminka",
   "Article details": "Article details",
   "Article page": "Article page",
   "Article was not found!": "Article was not found!",
@@ -46,6 +48,7 @@
   "yourCity": "yourCity",
   "yourLastname": "yourLastname",
   "yourName": "yourName",
+  "Админ панель": "Админ панель",
   "Айти": "Айти",
   "Все статьи": "Все статьи",
   "Данные не указаны": "Данные не указаны",
@@ -61,6 +64,7 @@
   "Создание новой статьи": "Создание новой статьи",
   "Создать статью": "Создать статью",
   "Сортировать ПО": "Сортировать ПО",
+  "У вас нет доступа к этой странице": "У вас нет доступа к этой странице",
   "Читать далее": {
     "": {
       "": {
