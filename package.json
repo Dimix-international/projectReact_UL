@@ -33,6 +33,7 @@
     "@storybook/addon-links": "^7.0.15",
     "@storybook/blocks": "^7.0.15",
     "@storybook/react": "^7.0.15",
+    "@testing-library/user-event": "^14.3.0",
     "@storybook/react-webpack5": "^7.0.15",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@svgr/webpack": "^6.2.1",

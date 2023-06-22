@@ -86,6 +86,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     readOnly={readOnly}
                     onChange={onChangeFirstName}
+                    data-testid="ProfileCard.firstname"
                 />
                 <Input
                     value={data?.lastname}
@@ -93,6 +94,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     readOnly={readOnly}
                     onChange={onChangeLastName}
+                    data-testid="ProfileCard.lastname"
                 />
                 <Input
                     value={data?.username}

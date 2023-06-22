@@ -13,7 +13,7 @@ interface ArticleRecommendationsListProps {
 
 export const ArticleRecommendationsList = memo(({ className }: ArticleRecommendationsListProps) => {
     const { t } = useTranslation('article');
-    const { isLoading, data: articles = [], error } = useArticleRecommendationsList(5);
+    const { isLoading, data: articles, error } = useArticleRecommendationsList(5);
 
     useEffect(() => {
         const errorHandler = (e: ErrorEvent) => {
@@ -37,7 +37,7 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
         return () => window.removeEventListener('error', errorHandler);
     }, []);
 
-    if (isLoading || error) {
+    if (isLoading || error || !articles) {
         return null;
     }
 
