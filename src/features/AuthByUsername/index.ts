@@ -1,3 +1,2 @@
 export { LoginModal } from './ui/LoginModal/LoginModal';
-export { LoginSchema } from './model/types/loginSchema';
-// export { loginReducer } from './model/slice/loginSlice'; -удаляем т.к. он асинхронный
+export type { LoginSchema } from './model/types/loginSchema';

@@ -1,11 +1,11 @@
 export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
-export {
+export type {
     ArticleDetailsCommentsSchema,
 } from './model/types/articleDetailsCommentsSchema';
-export {
+export type {
     ArticleDetailsRecommendationSchema,
 } from './model/types/articleDetailsRecommendationSchema';
-export {
+export type {
     ArticleDetailsPageSchema,
 } from './model/types/index';
 

@@ -5,11 +5,11 @@ import type {
 }
     from './config/StateSchema';
 
+export type { AppDispatchType };
 export {
     StoreProvider,
     createReduxStore,
     StateSchema,
     ReduxStoreWithManager,
-    AppDispatchType,
     ThunkConfig,
 };
