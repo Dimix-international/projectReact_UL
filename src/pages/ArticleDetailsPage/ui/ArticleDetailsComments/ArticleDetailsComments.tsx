@@ -1,20 +1,20 @@
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { TextCustom, TextSize } from 'shared/ui/TextCustom/TextCustom';
-import cls from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.module.scss';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { useSelector } from 'react-redux';
-import { getArticleComments } from 'pages/ArticleDetailsPage';
-import { getArticleCommentsIsLoading } from 'pages/ArticleDetailsPage/model/selectors/comments';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
+import cls from '../ArticleDetailsPage/ArticleDetailsPage.module.scss';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
+
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import {
     fetchCommentsByArticleId,
-} from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { VStack } from 'shared/ui/Stack';
+} from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 
 interface ArticleDetailsCommentsProps {
     className?: string;

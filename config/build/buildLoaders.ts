@@ -10,7 +10,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
     const svgLoader = buildSvgLoader();
 
-    const babelLoader = buildBabelLoader(options);
+    // const babelLoader = buildBabelLoader(options);
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -25,17 +27,19 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const cssLoader = buildCssLoader(isDev);
 
     // Если не используем typescript - нужен babel-loader
-    const typescriptLoader = {
+    /*     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
-    };
+    }; */
 
     return [
         fileLoader,
         svgLoader,
-        babelLoader,
-        typescriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        // babelLoader,
+        //  typescriptLoader,
         cssLoader,
     ];
 }

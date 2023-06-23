@@ -22,6 +22,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'ulbi-tv-plugin',
     ],
     rules: {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -53,9 +54,10 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'ulbi-tv-plugin/path-checker': 'error',
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
-            ignoreAttribute: ['as','data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
+            ignoreAttribute: ['as', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap'],
         }],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         '@typescript-eslint/no-unused-vars': [

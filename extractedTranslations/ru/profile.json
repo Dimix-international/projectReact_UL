@@ -1,7 +1,20 @@
 {
   "": "",
-  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении",
+  "Avatar": "Avatar",
+  "Cancel": "Cancel",
+  "Occurred something error": "Occurred something error",
+  "Please, refresh page!": "Please, refresh page!",
+  "Save": "Save",
+  "Username": "Username",
+  "edit": "edit",
+  "profile": "profile",
+  "yourAge": "yourAge",
+  "yourCity": "yourCity",
+  "yourLastname": "yourLastname",
+  "yourName": "yourName",
   "Данные не указаны": "Данные не указаны",
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",
-  "Некорректный возраст": "Некорректный возраст"
+  "Некорректный возраст": "Некорректный возраст",
+  "Профиль не найден": "Профиль не найден",
+  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении"
 }

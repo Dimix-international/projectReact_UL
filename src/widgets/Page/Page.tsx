@@ -6,10 +6,10 @@ import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfinit
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getScrollRestorationByPath } from 'widgets/Page/features/ScrollRestoration';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
+import { getScrollRestorationByPath } from '../Page/features/ScrollRestoration';
 import { scrollRestorationActions } from './features/ScrollRestoration/model/slices/scrollRestorationSlice';
 import cls from './Page.module.scss';
 

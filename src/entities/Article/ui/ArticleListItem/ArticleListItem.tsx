@@ -11,8 +11,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useHover } from 'shared/lib/hooks/useHover/useHover';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from 'shared/const/localStorage';
+import { ArticleBlockType, ArticleView } from '../../model/constnts/constns';
 import {
-    Article, ArticleBlockType, ArticleTextBlock, ArticleView,
+    Article, ArticleTextBlock,
 } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
