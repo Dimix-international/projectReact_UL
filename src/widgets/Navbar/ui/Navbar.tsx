@@ -10,8 +10,9 @@ import {
 import { TextCustom, TextTheme } from 'shared/ui/TextCustom/TextCustom';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { HStack } from 'shared/ui/Stack';
+import { NotificationButton } from 'features/notificationButton';
+import { AvatarDropdown } from 'features/avatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -22,14 +23,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
 
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
-
-    const isAdmin = useSelector(isUserAdmin);
-    const isManager = useSelector(isUserManager);
-
-    const isAdminPanelAvailable = isAdmin || isManager;
 
     const onOpenModal = useCallback(() => {
         setIsAuthModal(true);
@@ -38,10 +33,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
     }, []);
-
-    const onLogout = useCallback(() => {
-        dispatch(userActions.logout());
-    }, [dispatch]);
 
     if (authData) {
         return (
@@ -58,25 +49,11 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <Dropdown
-                    direction="bottom left"
-                    className={cls.dropdown}
-                    items={[
-                        ...(isAdminPanelAvailable ? [{
-                            content: t('Adminka'),
-                            href: RoutePath.admin_panel,
-                        }] : []),
-                        {
-                            content: t('profile'),
-                            href: RoutePath.profile + authData.id,
-                        },
-                        {
-                            content: t('exit'),
-                            onClick: onLogout,
-                        },
-                    ]}
-                    trigger={<Avatar size={30} src={authData.avatar} />}
-                />
+                <HStack gap="16" className={cls.actions}>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
+
             </header>
         );
     }
