@@ -7,11 +7,11 @@ import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleLi
 import { useArticleRecommendationsList } from '../../api/aritcleRecommendationsApi';
 import cls from './articleRecommendationList.module.scss';
 
-interface ArticleRecommendationsListProps {
+export interface ArticleRecommendationsListProps {
     className?: string;
 }
 
-export const ArticleRecommendationsList = memo(({ className }: ArticleRecommendationsListProps) => {
+const ArticleRecommendationsList = memo(({ className }: ArticleRecommendationsListProps) => {
     const { t } = useTranslation('article');
     const { isLoading, data: articles, error } = useArticleRecommendationsList(5);
 
@@ -67,3 +67,5 @@ export const ArticleRecommendationsList = memo(({ className }: ArticleRecommenda
         </div>
     );
 });
+
+export default ArticleRecommendationsList;
