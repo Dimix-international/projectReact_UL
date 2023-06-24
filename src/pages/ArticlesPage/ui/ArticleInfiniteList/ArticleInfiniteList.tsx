@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Article, ArticleList, ArticleView } from '@/entities/Article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 
 interface ArticleListProps {

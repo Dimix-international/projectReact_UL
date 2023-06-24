@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import AvatarImg from 'shared/assets/tests/storybook.jpg';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import AvatarImg from '@/shared/assets/tests/storybook.jpg';
 import { ProfileCard } from '../../ui/ProfileCard/ProfileCard';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

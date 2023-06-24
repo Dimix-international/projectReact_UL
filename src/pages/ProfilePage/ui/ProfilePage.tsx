@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page/Page';
-import { EditableProfileCard } from 'features/editableProfileCard';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
+import { Page } from '@/widgets/Page/Page';
+import { EditableProfileCard } from '@/features/editableProfileCard';
+import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 
 interface ProfilePageProps {
     className?: string

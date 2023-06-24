@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
-import { Article, ArticleView } from 'entities/Article';
-import { TextCustom, TextSize } from 'shared/ui/TextCustom/TextCustom';
 import { VirtuosoGrid } from 'react-virtuoso';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
+import { Article, ArticleView } from '@/entities/Article';
+import { TextCustom, TextSize } from '@/shared/ui/TextCustom/TextCustom';
+import { ArticleListItem } from '@/entities/Article/ui/ArticleListItem/ArticleListItem';
 import { useArticleRecommendationsList } from '../../api/aritcleRecommendationsApi';
 import cls from './articleRecommendationList.module.scss';
 

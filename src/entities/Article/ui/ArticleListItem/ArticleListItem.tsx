@@ -1,16 +1,16 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Card } from 'shared/ui/Card/Card';
-import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
-import { IconComponent } from 'shared/ui/IconComponent/IconComponent';
-import EyeIcon from 'shared/assets/icons/eye-20-20.svg';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useHover } from 'shared/lib/hooks/useHover/useHover';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from 'shared/const/localStorage';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Card } from '@/shared/ui/Card/Card';
+import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
+import { IconComponent } from '@/shared/ui/IconComponent/IconComponent';
+import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { useHover } from '@/shared/lib/hooks/useHover/useHover';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { ArticleBlockType, ArticleView } from '../../model/constnts/constns';
 import {
     Article, ArticleTextBlock,

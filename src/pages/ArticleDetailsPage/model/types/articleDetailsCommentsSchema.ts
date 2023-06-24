@@ -13,7 +13,7 @@ export interface ArticleDetailsCommentsSchema {
 // изменения объекта просто по ключу находим его и меняем необходимые поля
 
 import { EntityState } from '@reduxjs/toolkit';
-import { Comment } from 'entities/Comment';
+import { Comment } from '@/entities/Comment';
 
 export interface ArticleDetailsCommentsSchema extends EntityState<Comment>{
     isLoading?: boolean;

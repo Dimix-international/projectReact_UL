@@ -2,19 +2,19 @@ import {
     FC,
     HTMLAttributeAnchorTarget, memo, useEffect, useRef,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { TextAlign, TextCustom, TextSize } from 'shared/ui/TextCustom/TextCustom';
 import {
     Virtuoso, VirtuosoGrid, VirtuosoGridHandle, VirtuosoHandle,
 } from 'react-virtuoso';
-import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlePageFilters/ArticlesPageFilters';
-import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from 'shared/const/localStorage';
-import { ArticleView } from '../../model/constnts/constns';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { TextAlign, TextCustom, TextSize } from '@/shared/ui/TextCustom/TextCustom';
+import { ArticlesPageFilters } from '@/pages/ArticlesPage/ui/ArticlePageFilters/ArticlesPageFilters';
+import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { Article } from '../../model/types/article';
 import cls from './ArticleList.module.scss';
+import { ArticleView } from '../../model/constnts/constns';
 
 interface ArticleListProps {
     className?: string;

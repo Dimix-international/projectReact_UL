@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
-import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { HStack } from 'shared/ui/Stack';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { getUserAuthData } from 'entities/User';
+import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { HStack } from '@/shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getUserAuthData } from '@/entities/User';
 import { profileActions } from '../../model/slice/profileSlice';
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';

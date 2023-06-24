@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { TextCustom } from 'shared/ui/TextCustom/TextCustom';
 import { Virtuoso } from 'react-virtuoso';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
 import cls from './CommentList.module.scss';
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';

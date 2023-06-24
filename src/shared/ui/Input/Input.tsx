@@ -1,7 +1,7 @@
-import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
     InputHTMLAttributes, memo, ChangeEvent, useState, useEffect, useRef,
 } from 'react';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 // Omit - забираем все пропсы, и можем исключить не нужные
