@@ -1,22 +1,25 @@
 import { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Button } from '@/shared/ui/Button/Button';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { useCounterActions } from '../model/slice/counterSlice';
 
 export const Counter = () => {
-    const dispatch = useDispatch();
-    const counterValue = useSelector(getCounterValue);
+    // const dispatch = useDispatch();
+    //  const counterValue = useSelector(getCounterValue);
+    const counterValue = useCounterValue();
+    const { increment, decrement } = useCounterActions();
     const { t } = useTranslation();
 
     const incrementValue = useCallback(() => {
-        dispatch(counterActions.increment());
-    }, [dispatch]);
+        // dispatch(counterActions.increment());
+        increment();
+    }, [increment]);
 
     const decrementValue = useCallback(() => {
-        dispatch(counterActions.decrement());
-    }, [dispatch]);
+        // dispatch(counterActions.decrement());
+        decrement();
+    }, [decrement]);
 
     return (
         <div>
