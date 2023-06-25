@@ -6,12 +6,11 @@ export interface SelectOption<T extends string> {
     value: T;
     content: string;
 }
-
 interface SelectProps<T extends string> {
     className?: string;
     label?: string;
     options?: SelectOption<T>[];
-    value?: string;
+    value?: T;
     onChange?: (value: T) => void; // onChange?: (value: string) => void;
     readonly?: boolean;
 }

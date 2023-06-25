@@ -1,5 +1,11 @@
 import { MutableRefObject, useCallback, useRef } from 'react';
 
+/**
+ * Хук для задержки вывода данных
+ * @param callback
+ * @param delay
+ */
+
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
     const timer = useRef() as MutableRefObject<any>; // можно или нет вызывать callback
 

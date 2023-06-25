@@ -11,6 +11,7 @@ const preview: Preview = {
             },
         },
         decorators: [StyleDecorator],
+        layout: 'fullscreen',
     },
 };
 

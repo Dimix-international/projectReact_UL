@@ -23,6 +23,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'ulbi-tv-plugin',
+        'unused-imports',
     ],
     rules: {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
@@ -54,12 +55,13 @@ module.exports = {
         'react/jsx-no-useless-fragment': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'ulbi-tv-plugin/path-checker': 'error',
+        'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
         'i18next/no-literal-string': ['warn', {
             markupOnly: true,
             ignoreAttribute: ['as', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'border'],
         }],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
+        'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/no-unused-vars': [
             'warn',
             { argsIgnorePattern: '^_' },
