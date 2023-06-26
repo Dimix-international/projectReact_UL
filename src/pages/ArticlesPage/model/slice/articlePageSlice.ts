@@ -4,7 +4,7 @@ import {
 } from '@/entities/Article';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ARTICLES_VIEW_LOCAL_STORAGE } from '@/shared/const/localStorage';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 

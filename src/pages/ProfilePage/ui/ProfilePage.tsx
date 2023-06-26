@@ -25,7 +25,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames('', {}, [className])}>
+            <Page className={classNames('', {}, [className])} data-testid="ProfilePage">
                 <EditableProfileCard id={id} />
             </Page>
         </DynamicModuleLoader>

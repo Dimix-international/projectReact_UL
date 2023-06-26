@@ -12,7 +12,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
         mode,
         /*  entry: {
             //много entry (файлов)
-            RANDOM: path.resolve(__dirname, 'src', 'index.ts.ts'), // RANDOM - название файла
+            RANDOM: path.resolve(__dirname, 'src', 'sort.ts.ts'), // RANDOM - название файла
           }, //__dirname - папка в которой в данные момент находимся, далее участки пути */
         entry: paths.entry,
         output: {

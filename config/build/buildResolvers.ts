@@ -6,7 +6,7 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
         extensions: ['.tsx', '.ts', '.js'],
         preferAbsolute: true,
         modules: [options.paths.src, 'node_modules'],
-        mainFiles: ['index'], // для каждого модуля главным файлов будет index.ts
+        mainFiles: ['index'], // для каждого модуля главным файлов будет sort.ts
         alias: {
             '@': options.paths.src,
         },
