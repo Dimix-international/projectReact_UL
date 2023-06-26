@@ -37,6 +37,7 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
         >
             <Page
                 className={classNames('', {}, [className])}
+                data-testid="ArticlesPage"
             >
                 <ArticleInfiniteList articles={articles} view={view} isLoading={isLoading} />
             </Page>

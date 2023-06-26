@@ -16,6 +16,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
+    "test:e2e": "cypress open",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install",
@@ -36,6 +37,7 @@
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
+    "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^7.0.15",
     "@storybook/addon-interactions": "^7.0.15",
     "@storybook/addon-links": "^7.0.15",
@@ -63,6 +65,7 @@
     "circular-dependency-plugin": "^5.2.2",
     "copy-webpack-plugin": "^10.2.4",
     "css-loader": "^6.6.0",
+    "cypress": "^11.0.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-i18next": "^5.1.2",
@@ -101,7 +104,7 @@
   "dependencies": {
     "@headlessui/react": "^1.6.6",
     "@react-spring/web": "^9.5.2",
-    "@reduxjs/toolkit": "^1.8.0",
+    "@reduxjs/toolkit": "^1.9.0",
     "@use-gesture/react": "^10.2.19",
     "axios": "^1.4.0",
     "concurrently": "^7.0.0",
@@ -113,7 +116,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^18.2.0",
     "react-i18next": "^11.18.3",
-    "react-redux": "^7.2.6",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.2.1",
     "react-virtuoso": "^4.3.10"
   }
