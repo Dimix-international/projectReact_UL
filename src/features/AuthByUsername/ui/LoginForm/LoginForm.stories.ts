@@ -33,7 +33,7 @@ export const LoginFormDark: Story = {
 export const LoginFormDarkWithError: Story = {
     args: {},
     decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-        loginForm: { username: 'admin', password: '123', error: 'Incorrect login or password' },
+        loginForm: { username: 'admin', password: '123', error: 'Incorrect common or password' },
     })],
 };
 

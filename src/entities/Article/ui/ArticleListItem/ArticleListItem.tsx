@@ -60,6 +60,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         return (
             <div
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                data-testid="ArticleListItem"
                 {...bindHover}
             >
                 <Card className={cls.card}>
@@ -100,6 +101,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            data-testid="ArticleListItem"
             {...bindHover}
         >
             <Card className={cls.card}>

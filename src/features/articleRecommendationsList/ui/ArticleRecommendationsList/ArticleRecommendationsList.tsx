@@ -53,7 +53,7 @@ const ArticleRecommendationsList = memo(({ className }: ArticleRecommendationsLi
     );
 
     return (
-        <div className={cls.recommendationList}>
+        <div className={cls.recommendationList} data-testid="ArticleRecommendationsList">
             <TextCustom
                 size={TextSize.L}
                 title={t('Recommend')}

@@ -70,7 +70,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
+        <div className={classNames(cls.ProfileCard, mods, [className])} data-testid="ProfileCard">
             <div className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.avatarWrapper}>

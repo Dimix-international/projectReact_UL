@@ -36,7 +36,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <DynamicModuleLoader reducers={reducersList}>
             <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-                <VStack gap="16">
+                <VStack gap="16" data-testid="ArticleDetailsPageInfo">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
                     <ArticleRating articleId={id} />
