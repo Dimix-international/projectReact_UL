@@ -44,7 +44,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 square
                 size={ButtonSize.L}
             >
-                {collapsed ? '>' : '<'}
+                {collapsed ? '>>' : '<'}
             </Button>
             <VStack className={cls.items} gap="8">
                 {itemsList}
