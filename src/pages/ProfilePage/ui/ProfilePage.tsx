@@ -1,14 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
 import { Page } from '@/widgets/Page/Page';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';
 
 interface ProfilePageProps {
-    className?: string
+    className?: string;
 }
 
 const reducers: ReducersList = {
@@ -17,7 +20,7 @@ const reducers: ReducersList = {
 
 const ProfilePage = ({ className }: ProfilePageProps) => {
     const { t } = useTranslation('profile');
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
 
     if (!id) {
         return <TextCustom text={t('Профиль не найден')} />;
@@ -25,7 +28,10 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page className={classNames('', {}, [className])} data-testid="ProfilePage">
+            <Page
+                className={classNames('', {}, [className])}
+                data-testid="ProfilePage"
+            >
                 <EditableProfileCard id={id} />
             </Page>
         </DynamicModuleLoader>

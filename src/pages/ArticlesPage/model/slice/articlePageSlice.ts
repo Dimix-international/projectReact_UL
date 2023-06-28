@@ -1,7 +1,9 @@
-import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
-    Article,
-} from '@/entities/Article';
+    createEntityAdapter,
+    createSlice,
+    PayloadAction,
+} from '@reduxjs/toolkit';
+import { Article } from '@/entities/Article';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ARTICLES_VIEW_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { SortOrder } from '@/shared/types/sort';
@@ -20,14 +22,14 @@ enum ArticleView {
 enum ArticleSortField {
     VIEWS = 'views',
     TITLE = 'title',
-    CREATED = 'createdAt'
+    CREATED = 'createdAt',
 }
 
 enum ArticleType {
     ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS'
+    ECONOMICS = 'ECONOMICS',
 }
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
@@ -72,7 +74,9 @@ export const articlePageSlice = createSlice({
             state.type = action.payload;
         },
         initState: (state) => {
-            const view = localStorage.getItem(ARTICLES_VIEW_LOCAL_STORAGE) as ArticleView;
+            const view = localStorage.getItem(
+                ARTICLES_VIEW_LOCAL_STORAGE,
+            ) as ArticleView;
             state.view = view || ArticleView.SMALL;
             state.limit = view === ArticleView.BIG ? 4 : 9;
             state._inited = true;
@@ -88,10 +92,7 @@ export const articlePageSlice = createSlice({
                     articlesAdapter.removeAll(state);
                 }
             })
-            .addCase(fetchArticlesList.fulfilled, (
-                state,
-                action,
-            ) => {
+            .addCase(fetchArticlesList.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.hasMore = action.payload.length >= state.limit;
 

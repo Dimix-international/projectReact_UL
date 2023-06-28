@@ -1,6 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
-import { TextAlign, TextCustom, TextTheme } from '@/shared/ui/TextCustom/TextCustom';
+import {
+    TextAlign,
+    TextCustom,
+    TextTheme,
+} from '@/shared/ui/TextCustom/TextCustom';
 import { Input } from '@/shared/ui/Input/Input';
 import { Loader } from '@/shared/ui/Loader/Loader';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -12,18 +16,18 @@ import { Profile } from '../../model/types/profile';
 
 interface ProfileCardProps {
     className?: string;
-    data?: Profile
+    data?: Profile;
     isLoading: boolean;
     error?: string;
     readOnly: boolean;
-    onChangeFirstName?: (value: string) => void
-    onChangeLastName?: (value: string) => void
-    onChangeAge?: (value: string) => void
-    onChangeCity?: (value: string) => void
-    onChangeAvatar?: (value: string) => void
-    onChangeUsername?: (value: string) => void
-    onChangeCurrency?: (currency: Currency) => void
-    onChangeCountry?: (country: Country) => void
+    onChangeFirstName?: (value: string) => void;
+    onChangeLastName?: (value: string) => void;
+    onChangeAge?: (value: string) => void;
+    onChangeCity?: (value: string) => void;
+    onChangeAvatar?: (value: string) => void;
+    onChangeUsername?: (value: string) => void;
+    onChangeCurrency?: (currency: Currency) => void;
+    onChangeCountry?: (country: Country) => void;
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -46,7 +50,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.loading])}>
+            <div
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.loading,
+                ])}
+            >
                 <Loader />
             </div>
         );
@@ -54,7 +63,12 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <div
+                className={classNames(cls.ProfileCard, {}, [
+                    className,
+                    cls.error,
+                ])}
+            >
                 <TextCustom
                     theme={TextTheme.ERROR}
                     title={t('Occurred something error')}
@@ -70,14 +84,14 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])} data-testid="ProfileCard">
+        <div
+            className={classNames(cls.ProfileCard, mods, [className])}
+            data-testid="ProfileCard"
+        >
             <div className={cls.data}>
                 {data?.avatar && (
                     <div className={cls.avatarWrapper}>
-                        <Avatar
-                            src={data.avatar}
-                            alt="avatar"
-                        />
+                        <Avatar src={data.avatar} alt="avatar" />
                     </div>
                 )}
                 <Input

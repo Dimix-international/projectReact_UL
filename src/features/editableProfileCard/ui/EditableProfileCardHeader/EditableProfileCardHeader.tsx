@@ -13,66 +13,68 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 
 interface EditableProfileCardHeaderProps {
     className?: string;
-    readonly: boolean
+    readonly: boolean;
 }
 
-export const EditableProfileCardHeader = memo(({ className, readonly }: EditableProfileCardHeaderProps) => {
-    const { t } = useTranslation('profile');
+export const EditableProfileCardHeader = memo(
+    ({ className, readonly }: EditableProfileCardHeaderProps) => {
+        const { t } = useTranslation('profile');
 
-    const dispatch = useAppDispatch();
-    const authData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
-    const canEdit = authData?.id === profileData?.id;
+        const dispatch = useAppDispatch();
+        const authData = useSelector(getUserAuthData);
+        const profileData = useSelector(getProfileData);
+        const canEdit = authData?.id === profileData?.id;
 
-    const onEdit = useCallback(() => {
-        dispatch(profileActions.setReadonly(false));
-    }, [dispatch]);
+        const onEdit = useCallback(() => {
+            dispatch(profileActions.setReadonly(false));
+        }, [dispatch]);
 
-    const onCancelEdit = useCallback(() => {
-        dispatch(profileActions.cancelEdit());
-    }, [dispatch]);
+        const onCancelEdit = useCallback(() => {
+            dispatch(profileActions.cancelEdit());
+        }, [dispatch]);
 
-    const onSave = useCallback(() => {
-        dispatch(updateProfileData());
-    }, [dispatch]);
+        const onSave = useCallback(() => {
+            dispatch(updateProfileData());
+        }, [dispatch]);
 
-    return (
-        <HStack max justify="between" className={classNames('', {}, [className])}>
-            <TextCustom title={t('profile')} />
-            {
-                canEdit && (
+        return (
+            <HStack
+                max
+                justify="between"
+                className={classNames('', {}, [className])}
+            >
+                <TextCustom title={t('profile')} />
+                {canEdit && (
                     <div>
-                        {readonly
-                            ? (
+                        {readonly ? (
+                            <Button
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onEdit}
+                                data-testid="EditableProfileCardHeader.EditButton"
+                            >
+                                {t('edit')}
+                            </Button>
+                        ) : (
+                            <HStack gap="8">
                                 <Button
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={onEdit}
-                                    data-testid="EditableProfileCardHeader.EditButton"
+                                    theme={ButtonTheme.OUTLINE_RED}
+                                    onClick={onCancelEdit}
+                                    data-testid="EditableProfileCardHeader.CancelButton"
                                 >
-                                    {t('edit')}
+                                    {t('Cancel')}
                                 </Button>
-                            )
-                            : (
-                                <HStack gap="8">
-                                    <Button
-                                        theme={ButtonTheme.OUTLINE_RED}
-                                        onClick={onCancelEdit}
-                                        data-testid="EditableProfileCardHeader.CancelButton"
-                                    >
-                                        {t('Cancel')}
-                                    </Button>
-                                    <Button
-                                        theme={ButtonTheme.BACKGROUND_INVERTED}
-                                        onClick={onSave}
-                                        data-testid="EditableProfileCardHeader.SaveButton"
-                                    >
-                                        {t('Save')}
-                                    </Button>
-                                </HStack>
-                            )}
+                                <Button
+                                    theme={ButtonTheme.BACKGROUND_INVERTED}
+                                    onClick={onSave}
+                                    data-testid="EditableProfileCardHeader.SaveButton"
+                                >
+                                    {t('Save')}
+                                </Button>
+                            </HStack>
+                        )}
                     </div>
-                )
-            }
-        </HStack>
-    );
-});
+                )}
+            </HStack>
+        );
+    },
+);

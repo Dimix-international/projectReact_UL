@@ -14,11 +14,7 @@ interface CommentListProps {
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-    const {
-        className,
-        comments,
-        isLoading,
-    } = props;
+    const { className, comments, isLoading } = props;
 
     const { t } = useTranslation('article');
 
@@ -43,15 +39,15 @@ export const CommentList = memo((props: CommentListProps) => {
 
     return (
         <div className={classNames(cls.CommentList, {}, [className])}>
-            {comments?.length
-                ? (
-                    <Virtuoso
-                        style={{ height: '100%' }}
-                        data={comments}
-                        itemContent={renderArticle}
-                    />
-                )
-                : <TextCustom text={t('No comments!')} />}
+            {comments?.length ? (
+                <Virtuoso
+                    style={{ height: '100%' }}
+                    data={comments}
+                    itemContent={renderArticle}
+                />
+            ) : (
+                <TextCustom text={t('No comments!')} />
+            )}
         </div>
     );
 });

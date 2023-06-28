@@ -4,10 +4,16 @@ import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/Input/Input';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/ui/Stack';
-import { addCommentSliceReducer, addCommentSliceActions } from '../../model/slices/addCommentFormSlice';
+import {
+    addCommentSliceReducer,
+    addCommentSliceActions,
+} from '../../model/slices/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelector';
 
@@ -27,9 +33,12 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     const dispatch = useAppDispatch();
 
-    const onCommentTextChange = useCallback((value: string) => {
-        dispatch(addCommentSliceActions.setText(value));
-    }, [dispatch]);
+    const onCommentTextChange = useCallback(
+        (value: string) => {
+            dispatch(addCommentSliceActions.setText(value));
+        },
+        [dispatch],
+    );
 
     const sendCommentHandler = useCallback(() => {
         onSendComment?.(text || '');
@@ -38,14 +47,22 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <HStack max className={classNames(cls.AddCommentForm, {}, [className])} data-testid="AddCommentForm">
+            <HStack
+                max
+                className={classNames(cls.AddCommentForm, {}, [className])}
+                data-testid="AddCommentForm"
+            >
                 <Input
                     data-testid="AddCommentForm.Comment"
                     placeholder={t('Enter comment')}
                     value={text}
                     onChange={onCommentTextChange}
                 />
-                <Button theme={ButtonTheme.BACKGROUND} onClick={sendCommentHandler} data-testid="AddCommentForm.Send">
+                <Button
+                    theme={ButtonTheme.BACKGROUND}
+                    onClick={sendCommentHandler}
+                    data-testid="AddCommentForm.Send"
+                >
                     {t('Send')}
                 </Button>
             </HStack>

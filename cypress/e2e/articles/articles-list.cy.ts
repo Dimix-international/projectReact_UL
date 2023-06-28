@@ -1,9 +1,8 @@
 describe('Пользователь зашел на страницу списка статей', () => {
     beforeEach(() => {
-        cy.login()
-            .then((data) => {
-                cy.visit('articles');
-            });
+        cy.login().then((data) => {
+            cy.visit('articles');
+        });
     });
 
     it.skip('Список статей успешно загружен', () => {

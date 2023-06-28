@@ -1,5 +1,10 @@
 import {
-    InputHTMLAttributes, memo, ChangeEvent, useState, useEffect, useRef,
+    InputHTMLAttributes,
+    memo,
+    ChangeEvent,
+    useState,
+    useEffect,
+    useRef,
 } from 'react';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
@@ -7,14 +12,17 @@ import cls from './Input.module.scss';
 // Omit - забираем все пропсы, и можем исключить не нужные
 // используем т.к. конфликт типов value и onChange -
 // наше и они есть в  InputHTMLAttributes
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>;
 
-interface InputProps extends HTMLInputProps{
+interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number;
     onChange?: (value: string) => void;
     autofocus?: boolean;
-    readOnly?: boolean
+    readOnly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -65,9 +73,7 @@ export const Input = memo((props: InputProps) => {
     return (
         <div className={classNames(cls.InputWrapper, mods, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>
-                    {`${placeholder}>`}
-                </div>
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
             <div className={cls.caretWrapper}>
                 <input

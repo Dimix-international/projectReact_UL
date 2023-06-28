@@ -5,7 +5,7 @@ describe('getCounter', () => {
     test('should return counter value', () => {
         // проверяем что стэйт вернет нужный нам его участок
         // DeepPartial - не нужно объявлять весь state а только его кусочек
-        const state:DeepPartial<StateSchema> = {
+        const state: DeepPartial<StateSchema> = {
             counter: {
                 value: 10,
             },

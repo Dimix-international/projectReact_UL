@@ -58,10 +58,15 @@ describe('loginByUsername.test', () => {
 
         const thunk = new TestAsyncThunk(loginByUsername);
         thunk.api.post.mockReturnValue(Promise.resolve({ data: userValue }));
-        const result = await thunk.callThunk({ username: 'admin', password: '123' });
+        const result = await thunk.callThunk({
+            username: 'admin',
+            password: '123',
+        });
 
         // проверим что dispatch был вызван с аргументами
-        expect(thunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userValue));
+        expect(thunk.dispatch).toHaveBeenCalledWith(
+            userActions.setAuthData(userValue),
+        );
         // проверим что dispatch был вызван 3 раза
         expect(thunk.dispatch).toHaveBeenCalledTimes(3);
         // проверим что метод пост был вызван
@@ -75,7 +80,10 @@ describe('loginByUsername.test', () => {
     test('error common', async () => {
         const thunk = new TestAsyncThunk(loginByUsername);
         thunk.api.post.mockReturnValue(Promise.reject());
-        const result = await thunk.callThunk({ username: 'admin', password: '123' });
+        const result = await thunk.callThunk({
+            username: 'admin',
+            password: '123',
+        });
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         // проверим request status

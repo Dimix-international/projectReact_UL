@@ -1,8 +1,8 @@
-export type Mods = Record<string, boolean | string | undefined>
+export type Mods = Record<string, boolean | string | undefined>;
 /* const obj:Mods = {'hovered': true} */
 
 export function classNames(
-    cls:string,
+    cls: string,
     mods: Mods = {},
     additions: Array<string | undefined> = [],
 ): string {

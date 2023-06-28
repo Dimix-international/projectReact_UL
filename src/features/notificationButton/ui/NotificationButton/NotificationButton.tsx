@@ -37,21 +37,25 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
         <div>
             {!isMobile ? (
                 <Popover
-                    className={classNames(cls.NotificationButton, {}, [className])}
+                    className={classNames(cls.NotificationButton, {}, [
+                        className,
+                    ])}
                     direction="bottom left"
                     trigger={trigger}
                 >
                     <NotificationList className={cls.notifications} />
                 </Popover>
-            )
-                : (
-                    <>
-                        {trigger}
-                        <Drawer isOpen={isOpenNotifications} onClose={closeNotifications}>
-                            <NotificationList />
-                        </Drawer>
-                    </>
-                )}
+            ) : (
+                <>
+                    {trigger}
+                    <Drawer
+                        isOpen={isOpenNotifications}
+                        onClose={closeNotifications}
+                    >
+                        <NotificationList />
+                    </Drawer>
+                </>
+            )}
         </div>
     );
 });

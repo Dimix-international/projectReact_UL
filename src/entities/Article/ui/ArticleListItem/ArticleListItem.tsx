@@ -11,9 +11,7 @@ import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { ArticleBlockType, ArticleView } from '../../model/constnts/constns';
-import {
-    Article, ArticleTextBlock,
-} from '../../model/types/article';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
@@ -25,7 +23,7 @@ interface ArticleListItemProps {
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
-    index: number
+    index: number;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
@@ -40,7 +38,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const { t } = useTranslation('article');
     const [, bindHover] = useHover();
 
-    const types = <TextCustom text={article.type.join(', ')} className={cls.types} />;
+    const types = (
+        <TextCustom text={article.type.join(', ')} className={cls.types} />
+    );
     const views = (
         <>
             <TextCustom text={String(article.views)} className={cls.views} />
@@ -49,7 +49,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     );
 
     const handlerButtonClick = useCallback(() => {
-        sessionStorage.setItem(ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE, String(index));
+        sessionStorage.setItem(
+            ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE,
+            String(index),
+        );
     }, [index]);
 
     if (view === ArticleView.BIG) {
@@ -59,15 +62,24 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
         return (
             <div
-                className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+                className={classNames(cls.ArticleListItem, {}, [
+                    className,
+                    cls[view],
+                ])}
                 data-testid="ArticleListItem"
                 {...bindHover}
             >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user?.avatar} />
-                        <TextCustom text={article.user?.username} className={cls.username} />
-                        <TextCustom text={article.createdAt} className={cls.date} />
+                        <TextCustom
+                            text={article.user?.username}
+                            className={cls.username}
+                        />
+                        <TextCustom
+                            text={article.createdAt}
+                            className={cls.date}
+                        />
                     </div>
                     <TextCustom title={article.title} className={cls.title} />
                     {types}
@@ -78,7 +90,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         fallback={<Skeleton width="100%" height={250} />}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)}>
@@ -100,7 +115,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         <AppLink
             target={target}
             to={getRouteArticleDetails(article.id)}
-            className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+            className={classNames(cls.ArticleListItem, {}, [
+                className,
+                cls[view],
+            ])}
             data-testid="ArticleListItem"
             {...bindHover}
         >

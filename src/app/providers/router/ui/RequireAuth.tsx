@@ -15,7 +15,8 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     const userRoles = useSelector(getUserRoles);
 
     const hasRequiredRoles = useMemo(() => {
-        if (!roles) { // если роли в компонент не пришли
+        if (!roles) {
+            // если роли в компонент не пришли
             return true;
         }
 
@@ -26,11 +27,19 @@ export function RequireAuth({ children, roles }: RequireAuthProps) {
     }, [roles, userRoles]);
 
     if (!auth) {
-        return <Navigate to={getRouteMain()} state={{ from: location }} replace />;
+        return (
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
+        );
     }
 
     if (!hasRequiredRoles) {
-        return <Navigate to={getRouteForbidden()} state={{ from: location }} replace />;
+        return (
+            <Navigate
+                to={getRouteForbidden()}
+                state={{ from: location }}
+                replace
+            />
+        );
     }
 
     return children;

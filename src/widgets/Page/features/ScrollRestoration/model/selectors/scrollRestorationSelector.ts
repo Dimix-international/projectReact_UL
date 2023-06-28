@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
 
-export const getScrollRestorationScroll = (state: StateSchema) => state.scrollRestoration.scroll;
+export const getScrollRestorationScroll = (state: StateSchema) =>
+    state.scrollRestoration.scroll;
 
 export const getScrollRestorationByPath = createSelector(
     getScrollRestorationScroll, // получаем весь объект

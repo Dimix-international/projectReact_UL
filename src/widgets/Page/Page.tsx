@@ -1,6 +1,4 @@
-import {
-    memo, MutableRefObject, ReactNode, useRef, UIEvent,
-} from 'react';
+import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -14,7 +12,7 @@ import { scrollRestorationActions } from './features/ScrollRestoration/model/sli
 import cls from './Page.module.scss';
 import { TestsProps } from '@/shared/types/tests';
 
-interface PageProps extends TestsProps{
+interface PageProps extends TestsProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -28,7 +26,9 @@ export const Page = memo((props: PageProps) => {
     const { pathname } = useLocation();
 
     // т.к. селектор принимает кроме стэйта аргумент, то используем передаем функцию, т.к. useSelector работает только 1 аргументом
-    const scrollPosition = useSelector((state: StateSchema) => getScrollRestorationByPath(state, pathname));
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getScrollRestorationByPath(state, pathname),
+    );
 
     useInfiniteScroll({
         triggerRef,
@@ -42,10 +42,12 @@ export const Page = memo((props: PageProps) => {
 
     const onScroll = useThrottle((e: UIEvent) => {
         const { scrollTop } = e.currentTarget;
-        dispatch(scrollRestorationActions.setScrollPosition({
-            path: pathname,
-            position: scrollTop,
-        }));
+        dispatch(
+            scrollRestorationActions.setScrollPosition({
+                path: pathname,
+                position: scrollTop,
+            }),
+        );
     }, 500);
 
     return (
@@ -56,7 +58,9 @@ export const Page = memo((props: PageProps) => {
             data-testid={props['data-testid'] ?? 'Page'}
         >
             {children}
-            {onScrollEnd ? <div ref={triggerRef} className={cls.trigger} /> : null}
+            {onScrollEnd ? (
+                <div ref={triggerRef} className={cls.trigger} />
+            ) : null}
         </main>
     );
 });

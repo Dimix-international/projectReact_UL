@@ -11,11 +11,14 @@ const meta: Meta<typeof Sidebar> = {
     component: Sidebar,
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
-    decorators: [StoreDecorator({
-        user: {
-            authData: {},
-        },
-    }), RouterDecorator],
+    decorators: [
+        StoreDecorator({
+            user: {
+                authData: {},
+            },
+        }),
+        RouterDecorator,
+    ],
 };
 
 export default meta;
@@ -33,7 +36,10 @@ export const Dark: Story = {
 
 export const NotAuthUser: Story = {
     args: {},
-    decorators: [StoreDecorator({
-        user: {},
-    }), ThemeDecorator(Theme.DARK)],
+    decorators: [
+        StoreDecorator({
+            user: {},
+        }),
+        ThemeDecorator(Theme.DARK),
+    ],
 };

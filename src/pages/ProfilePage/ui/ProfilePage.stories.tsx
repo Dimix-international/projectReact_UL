@@ -15,20 +15,24 @@ const meta: Meta<typeof ProfilePage> = {
     component: ProfilePage,
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
-    decorators: [StoreDecorator({
-        profile: {
-            form: {
-                first: 'Дмитрий',
-                lastname: 'Мельников',
-                age: 22,
-                currency: Currency.USD,
-                country: Country.BELARUS,
-                city: 'Гомель',
-                username: '',
-                avatar: AvatarImg,
+    decorators: [
+        StoreDecorator({
+            profile: {
+                form: {
+                    first: 'Дмитрий',
+                    lastname: 'Мельников',
+                    age: 22,
+                    currency: Currency.USD,
+                    country: Country.BELARUS,
+                    city: 'Гомель',
+                    username: '',
+                    avatar: AvatarImg,
+                },
             },
-        },
-    }), RouterDecorator, ThemeDecorator(Theme.DARK)],
+        }),
+        RouterDecorator,
+        ThemeDecorator(Theme.DARK),
+    ],
 };
 
 export default meta;

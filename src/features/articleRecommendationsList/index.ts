@@ -1,2 +1,1 @@
-export { ArticleRecommendationsListAsync as ArticleRecommendationsList } from
-    './ui/ArticleRecommendationsList/ArticleRecommendationsList.async';
+export { ArticleRecommendationsListAsync as ArticleRecommendationsList } from './ui/ArticleRecommendationsList/ArticleRecommendationsList.async';

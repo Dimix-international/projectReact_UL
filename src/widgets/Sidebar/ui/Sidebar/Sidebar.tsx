@@ -10,7 +10,7 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string
+    className?: string;
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
@@ -19,21 +19,23 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 
     const onToggle = () => setCollapsed((prev) => !prev);
 
-    const itemsList = useMemo(() => sidebarItemsList.map((item) => (
-        <SidebarItem
-            key={item.path}
-            item={item}
-            collapsed={collapsed}
-        />
-    )), [collapsed, sidebarItemsList]);
+    const itemsList = useMemo(
+        () =>
+            sidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
+        [collapsed, sidebarItemsList],
+    );
 
     return (
         <div
-            className={classNames(
-                cls.Sidebar,
-                { [cls.collapsed]: collapsed },
-                [className],
-            )}
+            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+                className,
+            ])}
         >
             <Button
                 className={cls.collapseBtn}
@@ -45,16 +47,12 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 {collapsed ? '>' : '<'}
             </Button>
             <VStack className={cls.items} gap="8">
-                { itemsList }
+                {itemsList}
             </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher
-                    className={cls.lang}
-                    short={collapsed}
-                />
+                <LangSwitcher className={cls.lang} short={collapsed} />
             </div>
-
         </div>
     );
 });

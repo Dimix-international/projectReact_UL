@@ -2,14 +2,23 @@ import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+    DynamicModuleLoader,
+    ReducersList,
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { articlesListLoading, articlesListView } from '../../model/selectors/articlesList';
-import { articlePageReducer, getArticles } from '../../model/slice/articlePageSlice';
+import {
+    articlesListLoading,
+    articlesListView,
+} from '../../model/selectors/articlesList';
+import {
+    articlePageReducer,
+    getArticles,
+} from '../../model/slice/articlePageSlice';
 
 interface ArticlePageProps {
     className?: string;
@@ -31,15 +40,16 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
     });
 
     return (
-        <DynamicModuleLoader
-            reducers={reducers}
-            removeAfterUnmount={false}
-        >
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames('', {}, [className])}
                 data-testid="ArticlesPage"
             >
-                <ArticleInfiniteList articles={articles} view={view} isLoading={isLoading} />
+                <ArticleInfiniteList
+                    articles={articles}
+                    view={view}
+                    isLoading={isLoading}
+                />
             </Page>
         </DynamicModuleLoader>
     );

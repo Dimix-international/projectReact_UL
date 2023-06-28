@@ -1,24 +1,12 @@
-export {
-    userReducer,
-    userActions,
-} from './model/slice/userSlice';
+export { userReducer, userActions } from './model/slice/userSlice';
 
-export type {
-    UserSchema,
-    User,
-} from './model/types/user';
+export type { UserSchema, User } from './model/types/user';
 
-export {
-    UserRole,
-} from './model/consts/consts';
+export { UserRole } from './model/consts/consts';
 
-export {
-    getUserAuthData,
-} from './model/selectors/getUserAuthData/getUserAuthData';
+export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData';
 
-export {
-    getUserMounted,
-} from './model/selectors/getUserMounted/getUserMounted';
+export { getUserMounted } from './model/selectors/getUserMounted/getUserMounted';
 
 export {
     isUserAdmin,

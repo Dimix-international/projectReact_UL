@@ -7,7 +7,9 @@ describe('counterSlice', () => {
             value: 10,
         };
 
-        expect(counterReducer(counter, counterActions.decrement())).toEqual({ value: 9 });
+        expect(counterReducer(counter, counterActions.decrement())).toEqual({
+            value: 9,
+        });
     });
 
     test('increment test', () => {
@@ -15,11 +17,15 @@ describe('counterSlice', () => {
             value: 10,
         };
 
-        expect(counterReducer(counter, counterActions.increment())).toEqual({ value: 11 });
+        expect(counterReducer(counter, counterActions.increment())).toEqual({
+            value: 11,
+        });
     });
 
     test('should work with empty state', () => {
-        expect(counterReducer(undefined, counterActions.increment())).toEqual({ value: 1 });
+        expect(counterReducer(undefined, counterActions.increment())).toEqual({
+            value: 1,
+        });
         // 1 -  т.к. дефолтный state = 0
     });
 });

@@ -4,7 +4,8 @@ export const useAppDevice = () => {
     const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.matchMedia('(pointer:coarse)').matches);
+        const handleResize = () =>
+            setIsMobile(window.matchMedia('(pointer:coarse)').matches);
 
         handleResize();
         window.addEventListener('resize', handleResize);

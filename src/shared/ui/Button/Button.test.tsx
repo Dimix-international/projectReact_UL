@@ -3,9 +3,7 @@ import { Button } from '../Button/Button';
 
 describe('classNames', () => {
     test('with only first param', () => {
-        render(
-            <Button>Test</Button>,
-        );
+        render(<Button>Test</Button>);
         expect(screen.getByText('Test')).toBeInTheDocument();
     });
 });

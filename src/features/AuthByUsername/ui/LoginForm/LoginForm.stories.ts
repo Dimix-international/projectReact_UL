@@ -12,9 +12,12 @@ const meta: Meta<typeof LoginForm> = {
     component: LoginForm,
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
-    decorators: [StoreDecorator({
-        loginForm: { username: 'admin', password: '123' },
-    }), RouterDecorator],
+    decorators: [
+        StoreDecorator({
+            loginForm: { username: 'admin', password: '123' },
+        }),
+        RouterDecorator,
+    ],
 };
 
 export default meta;
@@ -32,14 +35,24 @@ export const LoginFormDark: Story = {
 
 export const LoginFormDarkWithError: Story = {
     args: {},
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-        loginForm: { username: 'admin', password: '123', error: 'Incorrect common or password' },
-    })],
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            loginForm: {
+                username: 'admin',
+                password: '123',
+                error: 'Incorrect common or password',
+            },
+        }),
+    ],
 };
 
 export const LoginFormDarkWithLoading: Story = {
     args: {},
-    decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({
-        loginForm: { username: 'admin', password: '123', isLoading: true },
-    })],
+    decorators: [
+        ThemeDecorator(Theme.DARK),
+        StoreDecorator({
+            loginForm: { username: 'admin', password: '123', isLoading: true },
+        }),
+    ],
 };

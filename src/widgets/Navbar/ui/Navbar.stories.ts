@@ -30,7 +30,9 @@ export const Dark: Story = {
 export const AuthUserDark: Story = {
     args: {},
     decorators: [
-        StoreDecorator({ user: { authData: { username: 'admin', id: '123' } } }),
+        StoreDecorator({
+            user: { authData: { username: 'admin', id: '123' } },
+        }),
         ThemeDecorator(Theme.DARK),
     ],
 };

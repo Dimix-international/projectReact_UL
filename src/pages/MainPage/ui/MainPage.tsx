@@ -8,7 +8,7 @@ const MainPage = () => {
 
     return (
         <Page data-testid="MainPage">
-            { t('mainPage') }
+            {t('mainPage')}
             <Counter />
         </Page>
     );

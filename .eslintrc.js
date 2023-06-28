@@ -8,6 +8,7 @@ module.exports = {
         'plugin:react/recommended',
         'airbnb',
         'plugin:i18next/recommended',
+        'prettier',
     ],
     parser: '@typescript-eslint/parser',
     parserOptions: {
@@ -28,10 +29,7 @@ module.exports = {
     rules: {
         'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
         'react-hooks/exhaustive-deps': 'error', // Checks effect dependencies
-        'react/jsx-indent': [2, 4],
         // 1 - warning, 0 - отключено, 2 - правило работатает
-        'react/jsx-indent-props': [2, 4],
-        indent: [2, 4],
         'react/jsx-filename-extension': [
             2,
             { extensions: ['.js', '.jsx', '.tsx'] },
@@ -56,16 +54,30 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
-        'i18next/no-literal-string': ['warn', {
-            markupOnly: true,
-            ignoreAttribute: ['as', 'data-testid', 'to', 'target', 'justify', 'align', 'direction', 'gap', 'border'],
-        }],
+        'i18next/no-literal-string': [
+            'warn',
+            {
+                markupOnly: true,
+                ignoreAttribute: [
+                    'as',
+                    'data-testid',
+                    'to',
+                    'target',
+                    'justify',
+                    'align',
+                    'direction',
+                    'gap',
+                    'border',
+                ],
+            },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 200 }],
         'unused-imports/no-unused-imports': 'error',
         '@typescript-eslint/no-unused-vars': [
             'warn',
             { argsIgnorePattern: '^_' },
         ],
+        'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
     },
     globals: {
         __IS_DEV__: true,
