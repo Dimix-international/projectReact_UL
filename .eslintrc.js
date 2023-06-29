@@ -78,6 +78,7 @@ module.exports = {
             { argsIgnorePattern: '^_' },
         ],
         'react/jsx-max-props-per-line': ['error', { maximum: 4 }],
+        'react/no-unstable-nested-components': 'warn',
     },
     globals: {
         __IS_DEV__: true,
