@@ -19,6 +19,7 @@ import {
     articlePageReducer,
     getArticles,
 } from '../../model/slice/articlePageSlice';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 interface ArticlePageProps {
     className?: string;
@@ -50,6 +51,7 @@ const ArticlesPage = ({ className }: ArticlePageProps) => {
                     view={view}
                     isLoading={isLoading}
                 />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     );
