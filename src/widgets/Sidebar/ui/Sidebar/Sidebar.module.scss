@@ -41,10 +41,15 @@
     .lang {
         margin-left: 0;
     }
+}
 
-    .link {
-        opacity: 0;
-        transition: 0.2s opacity;
-        width: 0;
-    }
+.SidebarRedesigned {
+    background: var(--light-bg-redesigned);
+    width: 220px;
+    height: 100%;
+    border-radius: 32px;
+}
+
+.appLogo {
+    padding-top: 20px;
 }
