@@ -11,8 +11,11 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from '@/shared/ui/Stack';
-import { TextCustom, TextTheme } from '@/shared/ui/TextCustom/TextCustom';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import {
+    TextCustom,
+    TextTheme,
+} from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';

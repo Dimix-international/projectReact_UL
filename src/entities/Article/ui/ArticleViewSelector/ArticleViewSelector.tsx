@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { IconComponent } from '@/shared/ui/IconComponent/IconComponent';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { IconComponent } from '@/shared/ui/deprecated/IconComponent/IconComponent';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg';
 import { ArticleView } from '../../model/constnts/constns';
@@ -47,6 +47,8 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                         className={classNames('', {
                             [cls.notSelected]: viewType.view !== view,
                         })}
+                        width={24}
+                        height={24}
                     />
                 </Button>
             ))}

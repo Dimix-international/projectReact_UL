@@ -11,7 +11,7 @@ import {
     TextAlign,
     TextCustom,
     TextSize,
-} from '@/shared/ui/TextCustom/TextCustom';
+} from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { ArticlesPageFilters } from '@/pages/ArticlesPage/ui/ArticlePageFilters/ArticlesPageFilters';
 import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';

@@ -2,7 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Virtuoso } from 'react-virtuoso';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
+import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import cls from './CommentList.module.scss';
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../../ui/CommentCard/CommentCard';

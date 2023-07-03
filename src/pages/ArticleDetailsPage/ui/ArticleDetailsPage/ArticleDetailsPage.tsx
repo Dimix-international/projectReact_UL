@@ -8,14 +8,14 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page/Page';
-import { VStack } from '@/shared/ui/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/deprecated/Stack/VStack/VStack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import cls from './ArticleDetailsPage.module.scss';
 import { articleDetailsPageReducer } from '../../model/slices/index';
 import { ArticleRating } from '@/features/articleRating';
-import { Card } from '@/shared/ui/Card/Card';
+import { Card } from '@/shared/ui/deprecated/Card/Card';
 import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {

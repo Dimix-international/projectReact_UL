@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
+import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 import { getRouteProfile } from '@/shared/const/router';

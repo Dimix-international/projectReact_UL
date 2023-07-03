@@ -7,18 +7,18 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import {
     TextAlign,
     TextCustom,
     TextSize,
     TextTheme,
-} from '@/shared/ui/TextCustom/TextCustom';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+} from '@/shared/ui/deprecated/TextCustom/TextCustom';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { IconComponent } from '@/shared/ui/IconComponent/IconComponent';
-import { VStack } from '@/shared/ui/Stack';
+import { IconComponent } from '@/shared/ui/deprecated/IconComponent/IconComponent';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleBlockType } from '../../model/constnts/constns';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

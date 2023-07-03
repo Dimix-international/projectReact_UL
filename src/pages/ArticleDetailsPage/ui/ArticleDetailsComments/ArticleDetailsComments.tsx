@@ -1,12 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { TextCustom, TextSize } from '@/shared/ui/TextCustom/TextCustom';
+import {
+    TextCustom,
+    TextSize,
+} from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { AddCommentForm } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import cls from '../ArticleDetailsPage/ArticleDetailsPage.module.scss';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 

@@ -5,7 +5,7 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
+import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { Page } from '@/widgets/Page/Page';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice';

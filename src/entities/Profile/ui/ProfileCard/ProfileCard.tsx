@@ -4,10 +4,10 @@ import {
     TextAlign,
     TextCustom,
     TextTheme,
-} from '@/shared/ui/TextCustom/TextCustom';
-import { Input } from '@/shared/ui/Input/Input';
-import { Loader } from '@/shared/ui/Loader/Loader';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+} from '@/shared/ui/deprecated/TextCustom/TextCustom';
+import { Input } from '@/shared/ui/deprecated/Input/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader/Loader';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import { Country } from '@/entities/Country/model/types/country';
 import { CountrySelect } from '@/entities/Country/ui/CountrySelect/CountrySelect';
 import { Currency, CurrencySelect } from '@/entities/Currency';

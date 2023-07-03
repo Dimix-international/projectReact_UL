@@ -1,22 +1,22 @@
 import { HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Card } from '@/shared/ui/Card/Card';
-import { TextCustom } from '@/shared/ui/TextCustom/TextCustom';
-import { IconComponent } from '@/shared/ui/IconComponent/IconComponent';
+import { Card } from '@/shared/ui/deprecated/Card/Card';
+import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
+import { IconComponent } from '@/shared/ui/deprecated/IconComponent/IconComponent';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
 import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { ArticleBlockType, ArticleView } from '../../model/constnts/constns';
 import { Article, ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { getRouteArticleDetails } from '@/shared/const/router';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { AppImage } from '@/shared/ui/deprecated/AppImage';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
