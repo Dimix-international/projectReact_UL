@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { Button } from '@/shared/ui/redesigned/Button/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getUserAuthData } from '@/entities/User';
 import { profileActions } from '../../model/slice/profileSlice';

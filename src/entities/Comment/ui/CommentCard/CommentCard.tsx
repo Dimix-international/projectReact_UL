@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton/Skeleton';
 import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
 import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';

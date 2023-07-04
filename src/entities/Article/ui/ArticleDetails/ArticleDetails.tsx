@@ -14,11 +14,11 @@ import {
     TextSize,
     TextTheme,
 } from '@/shared/ui/deprecated/TextCustom/TextCustom';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton/Skeleton';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
 import { IconComponent } from '@/shared/ui/redesigned/IconComponent/IconComponent';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleBlockType } from '../../model/constnts/constns';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';

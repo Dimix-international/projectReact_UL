@@ -10,7 +10,7 @@ import {
     TextTheme,
 } from '@/shared/ui/deprecated/TextCustom/TextCustom';
 import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';

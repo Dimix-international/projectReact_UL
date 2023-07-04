@@ -8,7 +8,7 @@ import {
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/widgets/Page/Page';
-import { VStack } from '@/shared/ui/deprecated/Stack/VStack/VStack';
+import { VStack } from '@/shared/ui/redesigned/Stack/VStack/VStack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
