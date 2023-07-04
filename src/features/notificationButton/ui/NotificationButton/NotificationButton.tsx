@@ -2,7 +2,7 @@ import React, { memo, useCallback, useState } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg';
 import { Popover } from '@/shared/ui/deprecated/Popups';
-import { IconComponent } from '@/shared/ui/deprecated/IconComponent/IconComponent';
+import { IconComponent } from '@/shared/ui/redesigned/IconComponent/IconComponent';
 import { NotificationList } from '@/entities/Notification';
 import { useAppDevice } from '@/shared/lib/hooks/useAppDevice/useAppDevice';
 import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
@@ -29,7 +29,7 @@ export const NotificationButton = memo((props: NotificationButtonProps) => {
 
     const trigger = (
         <div onClick={openNotifications}>
-            <IconComponent Svg={NotificationIcon} inverted />
+            <IconComponent Svg={NotificationIcon} />
         </div>
     );
 

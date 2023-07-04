@@ -4,15 +4,14 @@ import cls from './IconComponent.module.scss';
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
-    Svg: React.FC<React.SVGProps<SVGSVGElement>>;
+    Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
     inverted?: boolean;
 }
 
 /**
- * используем новые компоненты из папки redesigned
+ * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
-
 export const IconComponent = memo((props: IconProps) => {
     const { className, Svg, inverted, ...otherProps } = props;
 

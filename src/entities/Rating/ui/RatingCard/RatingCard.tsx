@@ -6,11 +6,7 @@ import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { StarRating } from '@/shared/ui/deprecated/StarRating/StarRating';
 import { Modal } from '@/shared/ui/deprecated/Modal/Modal';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
-import {
-    Button,
-    ButtonSize,
-    ButtonTheme,
-} from '@/shared/ui/deprecated/Button/Button';
+import { Button } from '@/shared/ui/redesigned/Button/Button';
 import { Drawer } from '@/shared/ui/deprecated/Drawer/Drawer';
 import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
 
@@ -93,7 +89,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
                             <Button
                                 data-testid="RatingCard.Close"
                                 onClick={cancelHandle}
-                                theme={ButtonTheme.OUTLINE_RED}
                             >
                                 {t('Закрыть')}
                             </Button>
@@ -114,7 +109,6 @@ export const RatingCard = memo((props: RatingCardProps) => {
                         <Button
                             fullWidth
                             onClick={acceptHandle}
-                            size={ButtonSize.L}
                             data-testid="RatingCard.Send"
                         >
                             {t('Отправить')}

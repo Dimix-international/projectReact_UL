@@ -3,12 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/deprecated/Card/Card';
 import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
-import { IconComponent } from '@/shared/ui/deprecated/IconComponent/IconComponent';
+import { IconComponent } from '@/shared/ui/redesigned/IconComponent/IconComponent';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import { Avatar } from '@/shared/ui/deprecated/Avatar/Avatar';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button } from '@/shared/ui/redesigned/Button/Button';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
-import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
+import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
 import { ARTICLE_LIST_ITEM_INDEX_LOCAL_STORAGE } from '@/shared/const/localStorage';
 import { ArticleBlockType, ArticleView } from '../../model/constnts/constns';
 import { Article, ArticleTextBlock } from '../../model/types/article';
@@ -97,10 +97,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     )}
                     <div className={cls.footer}>
                         <AppLink to={getRouteArticleDetails(article.id)}>
-                            <Button
-                                theme={ButtonTheme.OUTLINE}
-                                onClick={handlerButtonClick}
-                            >
+                            <Button onClick={handlerButtonClick}>
                                 {t('readMore')}
                             </Button>
                         </AppLink>

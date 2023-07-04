@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { TextCustom } from '@/shared/ui/deprecated/TextCustom/TextCustom';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button } from '@/shared/ui/redesigned/Button/Button';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { HStack } from '@/shared/ui/deprecated/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -48,7 +48,6 @@ export const EditableProfileCardHeader = memo(
                     <div>
                         {readonly ? (
                             <Button
-                                theme={ButtonTheme.OUTLINE}
                                 onClick={onEdit}
                                 data-testid="EditableProfileCardHeader.EditButton"
                             >
@@ -57,14 +56,12 @@ export const EditableProfileCardHeader = memo(
                         ) : (
                             <HStack gap="8">
                                 <Button
-                                    theme={ButtonTheme.OUTLINE_RED}
                                     onClick={onCancelEdit}
                                     data-testid="EditableProfileCardHeader.CancelButton"
                                 >
                                     {t('Cancel')}
                                 </Button>
                                 <Button
-                                    theme={ButtonTheme.BACKGROUND_INVERTED}
                                     onClick={onSave}
                                     data-testid="EditableProfileCardHeader.SaveButton"
                                 >

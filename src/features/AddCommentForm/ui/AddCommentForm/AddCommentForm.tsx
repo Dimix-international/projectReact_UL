@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button } from '@/shared/ui/redesigned/Button/Button';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -59,7 +59,6 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                     onChange={onCommentTextChange}
                 />
                 <Button
-                    theme={ButtonTheme.BACKGROUND}
                     onClick={sendCommentHandler}
                     data-testid="AddCommentForm.Send"
                 >

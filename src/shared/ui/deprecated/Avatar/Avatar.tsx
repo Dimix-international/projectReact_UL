@@ -3,7 +3,7 @@ import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import cls from './Avatar.module.scss';
 import { AppImage } from '../AppImage';
 import UserIcon from '../../../assets/icons/user-filled.svg';
-import { IconComponent } from '../IconComponent/IconComponent';
+import { IconComponent } from '../../redesigned/IconComponent/IconComponent';
 import { Skeleton } from '../Skeleton/Skeleton';
 
 interface AvatarProps {
@@ -37,9 +37,7 @@ export const Avatar = ({
     );
 
     const fallback = <Skeleton width={size} height={size} border="50%" />;
-    const errorFallback = (
-        <IconComponent Svg={UserIcon} inverted={fallbackInverted} />
-    );
+    const errorFallback = <IconComponent Svg={UserIcon} />;
 
     return (
         <AppImage

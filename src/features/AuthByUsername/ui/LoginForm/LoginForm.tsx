@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button } from '@/shared/ui/redesigned/Button/Button';
 import { Input } from '@/shared/ui/deprecated/Input/Input';
 import {
     TextCustom,
@@ -87,7 +87,6 @@ const LoginForm = memo((props: LoginFormProps) => {
                     value={password}
                 />
                 <Button
-                    theme={ButtonTheme.OUTLINE}
                     className={cls.loginBtn}
                     disabled={isLoading}
                     onClick={onLoginClick}

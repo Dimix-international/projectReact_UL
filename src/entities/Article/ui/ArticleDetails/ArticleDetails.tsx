@@ -17,7 +17,7 @@ import {
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton/Skeleton';
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg';
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg';
-import { IconComponent } from '@/shared/ui/deprecated/IconComponent/IconComponent';
+import { IconComponent } from '@/shared/ui/redesigned/IconComponent/IconComponent';
 import { VStack } from '@/shared/ui/deprecated/Stack';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { ArticleBlockType } from '../../model/constnts/constns';

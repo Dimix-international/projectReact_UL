@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { Button } from '@/shared/ui/redesigned/Button/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/Article/model/selectors/articleDetails';
 import { getCanEditArticle } from '../../model/selectors/article';
@@ -40,15 +40,9 @@ export const ArticleDetailsPageHeader = memo(
                     className,
                 ])}
             >
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <Button onClick={onBackToList}>{t('Назад к списку')}</Button>
                 {canEdit && (
-                    <Button
-                        className={cls.editBtn}
-                        theme={ButtonTheme.OUTLINE}
-                        onClick={onEditArticle}
-                    >
+                    <Button className={cls.editBtn} onClick={onEditArticle}>
                         {t('Редактировать')}
                     </Button>
                 )}
